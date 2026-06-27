@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIFURCA — ビフルカ世界観アーカイブ</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .hero {
+    padding: 4rem 0 3rem;
+    border-bottom: 2px solid var(--rule);
+    margin-bottom: 3rem;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 0.95;
+    color: var(--stone);
+    letter-spacing: -0.01em;
+  }
+  .hero-title em {
+    display: block;
+    font-style: italic;
+    color: var(--highlight);
+    font-size: 0.55em;
+    letter-spacing: 0.04em;
+    margin-top: 0.4rem;
+  }
+  .hero-tagline {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--ridge);
+    margin-top: 1.5rem;
+    max-width: 540px;
+    line-height: 1.85;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero-meta-num {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--highlight);
+    line-height: 1;
+  }
+  .hero-meta-label {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+  .world-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 3rem;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .world-side { padding: 2rem; }
+  .world-side-east { background: rgba(122,58,46,0.06); }
+  .world-side-west { background: rgba(46,90,122,0.06); }
+  .world-side-ridge {
+    background: rgba(74,107,62,0.06);
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 2rem;
+  }
+  .world-side-label {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .world-side-east .world-side-label { color: var(--east); }
+  .world-side-west .world-side-label { color: var(--west); }
+  .world-side-ridge .world-side-label { color: var(--linga); }
+  .world-side h3 {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--stone);
+    margin-bottom: 0.5rem;
+  }
+  .world-side p {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .epigraph {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--ridge);
+    border-left: 3px solid var(--highlight);
+    padding: 1.25rem 1.75rem;
+    margin: 3rem 0;
+    background: rgba(196,154,60,0.04);
+    line-height: 2;
+  }
+  .epigraph p { margin: 0.1rem 0; }
+  .epigraph cite {
+    display: block;
+    font-size: 0.75rem;
+    font-style: normal;
+    color: var(--muted);
+    margin-top: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+  .nav-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 1.5rem 0;
+  }
+  .nav-tile {
+    background: var(--aged);
+    padding: 1.75rem 1.5rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .nav-tile:hover { background: var(--stone); color: var(--parchment); }
+  .nav-tile:hover .tile-desc { color: var(--aged); }
+  .nav-tile:hover .tile-num { color: var(--highlight); }
+  .tile-num { font-family: var(--font-display); font-size: 1.8rem; line-height: 1; color: var(--ridge); }
+  .tile-title { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700; }
+  .tile-desc { font-family: var(--font-sans); font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+  .tile-status { font-family: var(--font-sans); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.5rem; }
+  .status-active { color: var(--linga); }
+  .status-pending { color: var(--muted); }
+  @media (max-width:640px) {
+    .world-intro { grid-template-columns: 1fr; }
+    .world-side-ridge { grid-column: 1; }
+    .hero-title { font-size: 3rem; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="site-title">BIFURCA<span>ビフルカ世界観アーカイブ</span></a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Top</a>
+      <a href="logs/index.html">会話ログ</a>
+      <a href="dict/index.html">用語辞典</a>
+      <a href="worldhistory/index.html">世界史</a>
+      <a href="guideline/index.html">創作ガイド</a>
+      <a href="gallery/index.html">ギャラリー</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <section class="hero">
+    <p class="hero-eyebrow">架空世界設定アーカイブ — Speculative World Archive</p>
+    <h1 class="hero-title">BIFURCA<em>ビフルカ</em></h1>
+    <p class="hero-tagline">「二つに分かれた」という意味の世界。<br>ただし分岐の語源は、かつて一つだった幹を含意する。</p>
+    <div class="hero-meta">
+      <div><div class="hero-meta-num">23</div><div class="hero-meta-label">会話ログ</div></div>
+      <div><div class="hero-meta-num">7</div><div class="hero-meta-label">民族</div></div>
+      <div><div class="hero-meta-num">11</div><div class="hero-meta-label">辞典部</div></div>
+      <div><div class="hero-meta-num">6</div><div class="hero-meta-label">大陸</div></div>
+    </div>
+  </section>
+
+  <p class="page-eyebrow">World Overview — 世界概要</p>
+  <div class="world-intro">
+    <div class="world-side world-side-east">
+      <p class="world-side-label">East — 東大陸群</p>
+      <h3>暖流・大河・農業文明</h3>
+      <p>ノルド東洋・赤道東洋・南東洋の三大陸。農業余剰から都市化、商業、工業へと段階的に発展。海洋帝国を形成し、グランドリッジを越えて西大陸の植民地化を進めた。</p>
+    </div>
+    <div class="world-side world-side-west">
+      <p class="world-side-label">West — 西大陸群</p>
+      <h3>独自文化・口承・共同体</h3>
+      <p>ノルド西洋・赤道西洋・南西洋の三大陸。農業文明型とは異なる、遊牧・隊商・都市国家連合の形で高度に進化した文化圏。六民族はかつて共通の祖語「古西語」を持った。</p>
+    </div>
+    <div class="world-side world-side-ridge">
+      <p class="world-side-label">Grand Ridge — グランドリッジ</p>
+      <h3>世界の背骨・第三の文化圏</h3>
+      <p>北極点から南極点まで連続する超山脈。平均標高6,500m。東西を5,000年以上遮断してきた。峠帯を管理するリンガ人が「第三の文化圏」として両世界の間に立つ。</p>
+    </div>
+  </div>
+
+  <!-- 世界地図 -->
+  <div class="ridge-divider">世界地図</div>
+  <figure style="margin:0 0 2rem;">
+    <a href="MAP.png" target="_blank">
+      <img src="MAP.png" alt="ビフルカ世界地図 第二版" style="width:100%;border:1px solid var(--rule);display:block;cursor:zoom-in;">
+    </a>
+    <figcaption style="font-family:var(--font-sans);font-size:0.72rem;color:var(--muted);margin-top:0.5rem;text-align:right;letter-spacing:0.05em;">
+      WORLD MAP OF BIFURCA 第二版　地質設計：w66zbLKt　©ビフルカ・プロジェクト　クリックで拡大
+    </figcaption>
+  </figure>
+
+  <blockquote class="epigraph">
+    <p>ヴァルン人はこの世界を「縫われた大地」と呼んだ。</p>
+    <p>タラッサ人は「海に挟まれた骨」と呼んだ。</p>
+    <p>ヴェルカ人は「壁のある夜」と呼んだ。</p>
+    <p>サハール人は「審判の庭」と呼んだ。</p>
+    <p>コルダ人は「取り返すべき場所」と呼んだ。</p>
+    <p>リンガ人だけが、それを「川」と呼んだ。</p>
+    <p style="margin-top:0.8rem;">我々はこの世界を「ビフルカ」と呼ぶ。二つに分かれた、という意味だ。</p>
+    <cite>——ビフルカ世界用語辞典 第二版 扉より</cite>
+  </blockquote>
+
+  <div class="ridge-divider">このアーカイブについて</div>
+  <p style="font-family:var(--font-sans);font-size:0.88rem;line-height:1.9;color:var(--ridge);max-width:660px;">
+    このサイトは、匿名掲示板スレッド「なんで先進国って北半球に偏ってるの？」から始まった世界観構築の全記録です。地質学者、気候科学者、経済学者、民俗学者、言語学者、考古学者、軍事史家、社会学者、ゲームデザイナー、そして高校生まで——多様な「専門家」が集まり、架空世界「ビフルカ」を協働で設計しました。
+  </p>
+
+  <div class="ridge-divider">コンテンツ</div>
+  <nav class="nav-tiles">
+    <a href="logs/index.html" class="nav-tile">
+      <span class="tile-num">I</span>
+      <span class="tile-title">会話ログアーカイブ</span>
+      <span class="tile-desc">スレッドの全19回の会話ログ。各回の末尾に成果まとめを収録。</span>
+      <span class="tile-status status-active">● 公開中</span>
+    </a>
+    <a href="dict/index.html" class="nav-tile">
+      <span class="tile-num">II</span>
+      <span class="tile-title">用語辞典</span>
+      <span class="tile-desc">第一部〜第九部（地理から俗信まで）の全項目を収録した世界観辞典。</span>
+      <span class="tile-status status-active">● 公開中</span>
+    </a>
+    <a href="worldhistory/index.html" class="nav-tile">
+      <span class="tile-num">III</span>
+      <span class="tile-title">世界史</span>
+      <span class="tile-desc">ビフルカの通史。プレート分岐から現代まで。Ⅰ〜Ⅵ部の年表・ンガ・ソル証言断片収録。</span>
+      <span class="tile-status status-active">● 公開中</span>
+    </a>
+    <a href="guideline/index.html" class="nav-tile">
+      <span class="tile-num">IV</span>
+      <span class="tile-title">創作ガイドライン</span>
+      <span class="tile-desc">CC BY-SA・三層構造・ファン創作の自由範囲・ロードマップ。ビフルカで創るために。</span>
+      <span class="tile-status status-active">● 公開中</span>
+    </a>
+    <a href="gallery/index.html" class="nav-tile">
+      <span class="tile-num">V</span>
+      <span class="tile-title">ギャラリー</span>
+      <span class="tile-desc">ファンアートキャンペーン受付中。#ビフルカ タグで投稿。受賞作品を恒久掲載。</span>
+      <span class="tile-status status-active">● 受付中</span>
+    </a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <p>BIFURCA — ビフルカ世界観アーカイブ</p>
+  <p style="margin-top:0.5rem;font-size:0.65rem;">「かつては一つだった幹のことを、二つの枝はそれぞれ別の名で呼ぶ」——リンガ人の諺</p>
+</footer>
+<script src="js/bifurca.js"></script>
+</body>
+</html>

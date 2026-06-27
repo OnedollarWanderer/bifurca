@@ -1,0 +1,543 @@
+/* ============================================
+   BIFURCA — ビフルカ世界観アーカイブサイト
+   Design: 山脈・断層・石板をモチーフにした
+   重厚な地図帳スタイル
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&family=IM+Fell+English:ital@0;1&display=swap');
+
+:root {
+  /* パレット — 石版・古地図・夜の峠 */
+  --ink:        #1a1410;
+  --stone:      #2c2620;
+  --ridge:      #4a3f35;
+  --parchment:  #f2ead8;
+  --aged:       #e8dcc4;
+  --highlight:  #c49a3c;
+  --east:       #7a3a2e;
+  --west:       #2e5a7a;
+  --linga:      #4a6b3e;
+  --muted:      #8a7d6e;
+  --rule:       #c8b89880;
+
+  --font-serif: 'Noto Serif JP', 'IM Fell English', Georgia, serif;
+  --font-sans:  'Noto Sans JP', system-ui, sans-serif;
+  --font-display: 'IM Fell English', 'Noto Serif JP', serif;
+
+  --radius: 2px;
+  --max-w: 900px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.85;
+  min-height: 100vh;
+}
+
+/* ── 背景テクスチャ（偽山脈の等高線） ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      rgba(74,63,53,0.04) 60px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 59px,
+      rgba(74,63,53,0.04) 60px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── サイトヘッダー ── */
+.site-header {
+  background: var(--stone);
+  color: var(--parchment);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--highlight);
+}
+
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  gap: 1rem;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--highlight);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-title span {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-top: -2px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--aged);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 0.85rem;
+  border-left: 1px solid rgba(200,184,152,0.2);
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--highlight);
+  background: rgba(196,154,60,0.1);
+}
+
+/* ── ページラッパー ── */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ── ページタイトルブロック ── */
+.page-hero {
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.page-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  line-height: 1.2;
+  color: var(--stone);
+  letter-spacing: 0.02em;
+}
+
+.page-title-ja {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--muted);
+  margin-top: 0.3rem;
+  font-weight: 300;
+}
+
+/* ── 分断線 (グランドリッジを模した縦線) ── */
+.ridge-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.ridge-divider::before,
+.ridge-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── カードグリッド ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: var(--aged);
+  border: 1px solid rgba(74,63,53,0.15);
+  border-top: 3px solid var(--ridge);
+  padding: 1.4rem 1.5rem;
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+  transition: transform 0.15s, box-shadow 0.15s, border-top-color 0.15s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26,20,16,0.12);
+  border-top-color: var(--highlight);
+}
+
+.card-num {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.card-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 1px;
+  margin-top: 0.75rem;
+  color: var(--ridge);
+}
+
+/* ── 会話ログ ── */
+.log-container {
+  background: var(--aged);
+  border: 1px solid rgba(74,63,53,0.15);
+  padding: 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.9;
+}
+
+.log-entry {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0.75rem 1.25rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(74,63,53,0.08);
+}
+
+.log-entry:last-child { border-bottom: none; }
+
+.log-id {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--east);
+  letter-spacing: 0.05em;
+  padding-top: 0.1rem;
+  word-break: break-all;
+}
+
+.log-text {
+  color: var(--ink);
+}
+
+.log-text strong, .log-text b {
+  color: var(--stone);
+}
+
+.log-text code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  background: rgba(74,63,53,0.08);
+  padding: 0.1rem 0.3rem;
+  border-radius: 2px;
+  white-space: pre-wrap;
+  display: block;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+/* ── まとめボックス ── */
+.summary-box {
+  background: var(--stone);
+  color: var(--parchment);
+  padding: 1.75rem 2rem;
+  margin-top: 3rem;
+  border-left: 4px solid var(--highlight);
+  position: relative;
+}
+
+.summary-box::before {
+  content: '▣  この回の成果';
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--highlight);
+  margin-bottom: 1.2rem;
+}
+
+.summary-box h3 {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--aged);
+  margin: 1rem 0 0.4rem;
+}
+
+.summary-box h3:first-of-type { margin-top: 0; }
+
+.summary-box p, .summary-box li {
+  font-family: var(--font-sans);
+  font-size: 0.83rem;
+  line-height: 1.75;
+  color: rgba(242,234,216,0.85);
+}
+
+.summary-box ul {
+  padding-left: 1.2rem;
+  margin-top: 0.3rem;
+}
+
+.summary-box li { margin: 0.25rem 0; }
+
+/* ── 辞書エントリー ── */
+.dict-section {
+  margin: 3rem 0;
+}
+
+.dict-section-title {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dict-entry {
+  background: var(--aged);
+  border: 1px solid rgba(74,63,53,0.12);
+  border-left: 3px solid var(--ridge);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: border-left-color 0.15s;
+}
+
+.dict-entry:hover { border-left-color: var(--highlight); }
+.dict-entry a { color: inherit; text-decoration: none; display: block; }
+
+.dict-headword {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--stone);
+}
+
+.dict-reading {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-left: 0.5rem;
+}
+
+.dict-meta {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.2rem 0 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+.dict-def {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.dict-quote {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  color: var(--ridge);
+  font-style: italic;
+  margin: 0.75rem 0 0.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule);
+}
+
+.dict-related {
+  margin-top: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.dict-tag {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  padding: 0.15rem 0.55rem;
+  background: rgba(74,63,53,0.08);
+  color: var(--ridge);
+  border-radius: 1px;
+  letter-spacing: 0.05em;
+}
+
+/* ── 辞書詳細ページ ── */
+.dict-full {
+  background: var(--aged);
+  border: 1px solid rgba(74,63,53,0.15);
+  border-top: 4px solid var(--highlight);
+  padding: 2.5rem;
+}
+
+.dict-full .headword-block {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.dict-full h1 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--stone);
+  line-height: 1.3;
+}
+
+/* ── 世界史プレースホルダー ── */
+.placeholder-box {
+  border: 2px dashed rgba(74,63,53,0.25);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.placeholder-box p {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* ── ナビゲーション（前後） ── */
+.log-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.log-nav a {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--ridge);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--rule);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.log-nav a:hover {
+  background: var(--ridge);
+  color: var(--parchment);
+  border-color: var(--ridge);
+}
+
+.log-nav-prev::before { content: '← '; }
+.log-nav-next::after  { content: ' →'; }
+
+/* ── フッター ── */
+.site-footer {
+  background: var(--stone);
+  color: var(--muted);
+  text-align: center;
+  padding: 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  margin-top: 4rem;
+  border-top: 1px solid var(--highlight);
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer p { margin: 0.3rem 0; }
+
+/* ── レスポンシブ ── */
+@media (max-width: 640px) {
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .site-nav { gap: 0; }
+  .site-nav a { padding: 0.35rem 0.6rem; font-size: 0.75rem; }
+  .page-title { font-size: 1.7rem; }
+  .log-entry { grid-template-columns: 1fr; gap: 0.2rem; }
+  .log-id { font-size: 0.65rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .dict-full { padding: 1.5rem; }
+}
+
+/* 関連項目タグ — リンク版 */
+a.dict-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  padding: 0.15rem 0.55rem;
+  background: rgba(74,63,53,0.08);
+  color: var(--ridge);
+  border-radius: 1px;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+a.dict-tag:hover {
+  background: var(--ridge);
+  color: var(--parchment);
+}
