@@ -1,0 +1,6 @@
+﻿.git
+.git/**
+*.pack
+wrangler.jsonc
+node_modules
+node_modules/**
