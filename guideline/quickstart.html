@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5分クイックスタート — BIFURCA</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.qs-hero-note{font-family:var(--font-sans);font-size:0.8rem;color:var(--muted);border-left:3px solid var(--highlight);padding:0.6rem 1rem;margin:1.5rem 0 2rem;background:rgba(196,154,60,0.05);}
+.nation-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.5rem 0;}
+.nation-card{background:var(--aged);display:flex;flex-direction:column;}
+.nation-card-image{width:100%;height:180px;object-fit:cover;display:block;}
+.nation-card-body{padding:1.25rem 1.25rem 1rem;}
+.nation-card-name{font-family:var(--font-serif);font-size:1rem;font-weight:700;color:var(--stone);margin-bottom:0.15rem;}
+.nation-card-sub{font-family:var(--font-sans);font-size:0.68rem;letter-spacing:0.12em;color:var(--highlight);text-transform:uppercase;margin-bottom:0.6rem;}
+.nation-card-econ{font-family:var(--font-sans);font-size:0.78rem;color:var(--muted);margin-bottom:0.5rem;line-height:1.5;}
+.nation-card-hook{font-family:var(--font-sans);font-size:0.8rem;color:var(--ridge);border-top:1px solid var(--rule);padding-top:0.6rem;margin-top:0.5rem;line-height:1.55;}
+.nation-card-hook strong{color:var(--stone);}
+.nation-card-link{display:block;text-align:right;font-family:var(--font-sans);font-size:0.72rem;color:var(--highlight);text-decoration:none;padding:0.5rem 1.25rem 0.8rem;margin-top:auto;}
+.flow-box{background:var(--stone);color:var(--parchment);padding:1.75rem 2rem;margin:1.5rem 0;}
+.flow-box h3{font-family:var(--font-display);font-size:1.1rem;color:var(--highlight);margin-bottom:1.25rem;}
+.flow-step{display:grid;grid-template-columns:2rem 1fr;gap:0.5rem 1rem;margin:0.75rem 0;align-items:start;}
+.flow-num{font-family:var(--font-display);font-size:1.1rem;color:var(--highlight);line-height:1;}
+.flow-text{font-family:var(--font-sans);font-size:0.82rem;color:rgba(242,234,216,0.85);line-height:1.65;}
+.flow-text strong{color:var(--aged);}
+.shared-prop-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.5rem 0;}
+.shared-prop-item{background:var(--aged);padding:1.25rem 1.25rem;}
+.shared-prop-title{font-family:var(--font-serif);font-size:0.95rem;font-weight:700;color:var(--stone);margin-bottom:0.4rem;}
+.shared-prop-body{font-family:var(--font-sans);font-size:0.78rem;color:var(--muted);line-height:1.65;}
+.next-links{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;}
+.next-links a{font-family:var(--font-sans);font-size:0.8rem;color:var(--ridge);text-decoration:none;border:1px solid var(--rule);padding:0.6rem 1.25rem;}
+.next-links a:hover{border-color:var(--highlight);color:var(--stone);}
+@media(max-width:600px){.shared-prop-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html" class="site-title">BIFURCA<span>ビフルカ世界観アーカイブ</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Top</a>
+      <a href="../logs/index.html">会話ログ</a>
+      <a href="../dict/index.html">用語辞典</a>
+      <a href="../worldhistory/index.html">世界史</a>
+      <a href="index.html" class="active">創作ガイド</a>
+      <a href="../gallery/index.html">ギャラリー</a>
+    </nav>
+    <a href="../search.html" class="search-icon-link">🔍 検索</a>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <div class="page-hero">
+    <p class="page-eyebrow">Quick Start — はじめての創作者へ</p>
+    <h1 class="page-title">5分チートシート</h1>
+    <p class="page-title-ja">これだけ読めば、書き始められます</p>
+  </div>
+
+  <p class="qs-hero-note">
+    辞典・世界史・会話ログを全部読む必要はありません。<br>
+    書きたい民族のカードを一枚読んで、「失政パターン」を入口にしてください。それだけで、その民族らしい話が書けます。
+  </p>
+
+  <!-- 世界を一文で -->
+  <div class="ridge-divider">この世界を一文で言うと</div>
+  <blockquote style="font-family:var(--font-serif);font-style:italic;color:var(--ridge);border-left:3px solid var(--highlight);padding:1rem 1.5rem;margin:1.5rem 0 2rem;background:rgba(196,154,60,0.04);font-size:0.92rem;line-height:1.9;">
+    「グランドリッジという超山脈が世界を東西に分け、隔離された七つの民族それぞれに<strong>地理が生んだ経済の型</strong>と、その型が必然的に生む<strong>失政パターン</strong>がある」<br>
+    <span style="font-style:normal;font-size:0.75rem;color:var(--muted);">——逆に言えば、民族の失政パターンを一つ知っているだけで、その民族らしい話が書けます。</span>
+  </blockquote>
+
+  <!-- 七民族カード -->
+  <div class="ridge-divider">七民族チートシート</div>
+  <p style="font-family:var(--font-sans);font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">書きたい民族のカードだけ読めばOKです。</p>
+  <div class="nation-grid">
+
+    <!-- ヴァルン人 -->
+    <div class="nation-card">
+      <img class="nation-card-image" src="../assets/images/city_varun.png" alt="ヴァルン人の都市">
+      <div class="nation-card-body">
+        <div class="nation-card-name">ヴァルン人</div>
+        <div class="nation-card-sub">東 · ノルド東洋 · 農耕官僚国家</div>
+        <div class="nation-card-econ">農業余剰の中央集権管理。農業国家が生む官僚階層。</div>
+        <div class="nation-card-hook"><strong>失政パターン：情報の上方歪曲</strong><br>不都合な報告が上に伝わらない。「黙らされた正直者」の話が書きやすい。</div>
+      </div>
+      <a class="nation-card-link" href="../dict/varun.html">辞典を読む →</a>
+    </div>
+
+    <!-- タラッサ人 -->
+    <div class="nation-card">
+      <img class="nation-card-image" src="../assets/images/city_talassa.png" alt="タラッサ人の都市">
+      <div class="nation-card-body">
+        <div class="nation-card-name">タラッサ人</div>
+        <div class="nation-card-sub">東 · 赤道東洋 · 海洋商業国家</div>
+        <div class="nation-card-econ">造船・貿易。動かせる建築、固定しない衣装を持つ民。</div>
+        <div class="nation-card-hook"><strong>失政パターン：公共財の過小投資</strong><br>「誰かがやるだろう」で灯台も港も整備されない。</div>
+      </div>
+      <a class="nation-card-link" href="../dict/talassa.html">辞典を読む →</a>
+    </div>
+
+    <!-- ヴェルカ人 -->
+    <div class="nation-card">
+      <img class="nation-card-image" src="../assets/images/city_velka.png" alt="ヴェルカ人の都市">
+      <div class="nation-card-body">
+        <div class="nation-card-name">ヴェルカ人</div>
+        <div class="nation-card-sub">西 · ノルド西洋 · 半遊牧・部族評議会</div>
+        <div class="nation-card-econ">口承・集団意思決定。即答しないことが美徳の文化。</div>
+        <div class="nation-card-hook"><strong>失政パターン：決定不能トラップ</strong><br>全員一致を待ち続けて結論が出ない。むしろ急ぐことが恥。</div>
+      </div>
+      <a class="nation-card-link" href="../dict/verka.html">辞典を読む →</a>
+    </div>
+
+    <!-- サハール人 -->
+    <div class="nation-card">
+      <img class="nation-card-image" src="../assets/images/city_sahaar.png" alt="サハール人の都市">
+      <div class="nation-card-body">
+        <div class="nation-card-name">サハール人</div>
+        <div class="nation-card-sub">西 · 赤道西洋 · 隊商・氏族連合</div>
+        <div class="nation-card-econ">水資源管理・客人歓待。相互扶助が核心の文化。</div>
+        <div class="nation-card-hook"><strong>失政パターン：ビザンチン将軍問題</strong><br>客人歓待の文化が、外部からの分断工作に弱い。</div>
+      </div>
+      <a class="nation-card-link" href="../dict/sahal.html">辞典を読む →</a>
+    </div>
+
+    <!-- コルダ人 -->
+    <div class="nation-card">
+      <img class="nation-card-image" src="../assets/images/city_korda.png" alt="コルダ人の都市">
+      <div class="nation-card-body">
+        <div class="nation-card-name">コルダ人</div>
+        <div class="nation-card-sub">西 · 南西洋 · 牧畜・都市国家連合</div>
+        <div class="nation-card-econ">家畜・誇りの経済。家畜の数をぼかして語る作法を持つ。</div>
+        <div class="nation-card-hook"><strong>失政パターン：プライドの外交的コスト</strong><br>屈服しないことが勝つことより尊い。だから損をする。</div>
+      </div>
+      <a class="nation-card-link" href="../dict/koruda.html">辞典を読む →</a>
+    </div>
+
+    <!-- カルナ人 -->
+    <div class="nation-card">
+      <img class="nation-card-image" src="../assets/images/city_karna.png" alt="カルナ人の都市">
+      <div class="nation-card-body">
+        <div class="nation-card-name">カルナ人</div>
+        <div class="nation-card-sub">東 · 南東洋 · 入植者の子孫</div>
+        <div class="nation-card-econ">植民地経済。多民族都市カルタ＝エナを持つ。</div>
+        <div class="nation-card-hook"><strong>失政パターン：先住民問題の時限爆弾</strong><br>結ばれた約束が破られた歴史が、民話に残る。</div>
+      </div>
+      <a class="nation-card-link" href="../dict/karna.html">辞典を読む →</a>
+    </div>
+
+    <!-- リンガ人 -->
+    <div class="nation-card">
+      <img class="nation-card-image" src="../assets/images/city_linga.png" alt="リンガ人の都市">
+      <div class="nation-card-body">
+        <div class="nation-card-name">リンガ人</div>
+        <div class="nation-card-sub">グランドリッジ峠帯 · 第三文化圏</div>
+        <div class="nation-card-econ">情報寡頭制。峠の地図を独占する管理者一族。</div>
+        <div class="nation-card-hook"><strong>持ち味：戦略的あいまい性</strong><br>東西どちらにも「本当の答え」を言わない。失政より沈黙が戦略。</div>
+      </div>
+      <a class="nation-card-link" href="../dict/linga.html">辞典を読む →</a>
+    </div>
+
+  </div>
+
+  <!-- 全民族共通の小道具 -->
+  <div class="ridge-divider">全民族に共通する小道具</div>
+  <div class="shared-prop-grid">
+    <div class="shared-prop-item">
+      <div class="shared-prop-title">ンガ・ソル</div>
+      <div class="shared-prop-body">七民族すべての伝承に断片的に現れる正体不明の観測者。「気配を感じる場面」は自由に書けますが、正体を明かすことは禁止です。</div>
+    </div>
+    <div class="shared-prop-item">
+      <div class="shared-prop-title">「三」という数字</div>
+      <div class="shared-prop-body">七民族の俗信のうち5つに共通して現れる謎の数字。高校生キャラが発見したという経緯もあり、未解明という設定自体がフックになります。</div>
+    </div>
+    <div class="shared-prop-item">
+      <div class="shared-prop-title">古西語・原宗教（仮説）</div>
+      <div class="shared-prop-body">西大陸六民族限定。「実は祖先は同じだったのでは」という連帯の伏線として使えます。</div>
+    </div>
+    <div class="shared-prop-item">
+      <div class="shared-prop-title">グランドリッジ</div>
+      <div class="shared-prop-body">南北極点を貫く超山脈。コア設定（変更不可）ですが、「峠越えの一場面」として書くのは完全自由です。</div>
+    </div>
+  </div>
+
+  <!-- 判断フロー -->
+  <div class="ridge-divider">迷ったときの3ステップ</div>
+  <div class="flow-box">
+    <h3>書いていいかどうか、この順で確認する</h3>
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-text"><strong>コア設定に触れる？</strong> — グランドリッジの位置・七民族の名称・ンガ・ソルの正体・言語設定など6項目に触れるなら、Discordで一度確認してください。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div class="flow-text"><strong>特定の民族の日常・個人の話？</strong> — そのまま自由に書いてOKです（Layer 3）。矛盾していても「その作者の解釈」として共存できます。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-text"><strong>正史に入れたいレベルの新設定？</strong> — Layer 2として運営に提案してください。公認されればクレジット付きで正史入りします。</div>
+    </div>
+  </div>
+
+  <!-- 次のステップ -->
+  <div class="ridge-divider">次のステップ</div>
+  <div class="next-links">
+    <a href="index.html">創作ガイドライン（ライセンス・募集要項）→</a>
+    <a href="../dict/index.html">用語辞典で民族を深掘りする →</a>
+    <a href="../worldhistory/index.html">世界史を読む →</a>
+    <a href="../gallery/index.html">ファンアートキャンペーンに参加する →</a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>BIFURCA — ビフルカ世界観アーカイブ</p>
+  <p style="font-size:0.65rem;margin-top:0.4rem;">ビフルカ世界観はCC BY-SA 4.0ライセンスの下で公開されています</p>
+</footer>
+<script src="../js/bifurca.js"></script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世界史 — BIFURCA</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.history-section {
+  margin: 2.5rem 0;
+  border-left: 3px solid var(--rule);
+  padding-left: 1.75rem;
+  position: relative;
+}
+.history-section::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0.3rem;
+  width: 7px;
+  height: 7px;
+  background: var(--highlight);
+  border-radius: 50%;
+}
+.history-era {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--highlight);
+  margin-bottom: 0.3rem;
+}
+.history-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--stone);
+  margin-bottom: 0.75rem;
+}
+.history-body {
+  font-family: var(--font-sans);
+  font-size: 0.87rem;
+  line-height: 1.9;
+  color: var(--ridge);
+}
+.history-note {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-left: 2px solid var(--rule);
+}
+.power-map {
+  background: var(--stone);
+  color: var(--parchment);
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.power-map h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--highlight);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.08em;
+}
+.power-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1px;
+  background: rgba(200,184,152,0.15);
+}
+.power-item {
+  padding: 1rem 1.25rem;
+  background: var(--stone);
+}
+.power-label {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.power-core    .power-label { color: #6fa3d4; }
+.power-semi    .power-label { color: #7ab87a; }
+.power-relay   .power-label { color: #c8a84a; }
+.power-peri    .power-label { color: #c47a7a; }
+.power-name {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--aged);
+  margin-bottom: 0.4rem;
+}
+.power-desc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.two-layer-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin: 2rem 0;
+}
+.layer-item {
+  padding: 1.5rem;
+  background: var(--aged);
+}
+.layer-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.layer-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--stone);
+  margin-bottom: 0.5rem;
+}
+.layer-desc {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--ridge);
+  line-height: 1.7;
+}
+.nga-sol-fragment {
+  background: rgba(74,63,53,0.05);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--muted);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--ridge);
+  font-size: 0.88rem;
+  line-height: 2.1;
+}
+.nga-sol-fragment p { margin: 0.25rem 0; }
+.nga-sol-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  font-style: normal;
+  margin-bottom: 1rem;
+}
+.disclaimer {
+  background: rgba(74,63,53,0.06);
+  border: 1px dashed rgba(74,63,53,0.25);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+@media(max-width:640px){
+  .two-layer-box{grid-template-columns:1fr;}
+  .power-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html" class="site-title">BIFURCA<span>ビフルカ世界観アーカイブ</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Top</a>
+      <a href="../logs/index.html">会話ログ</a>
+      <a href="../dict/index.html">用語辞典</a>
+      <a href="index.html" class="active">世界史</a>
+      <a href="../guideline/index.html">創作ガイド</a>
+      <a href="../gallery/index.html">ギャラリー</a>
+    </nav>
+    <a href="../search.html" class="search-icon-link">🔍 検索</a>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <div class="page-hero">
+    <p class="page-eyebrow">World History — ビフルカ通史</p>
+    <h1 class="page-title">ビフルカ年表</h1>
+    <p class="page-title-ja">編纂：vT6nRkXp（比較史・マクロ年表統合）　監修：スレッド参加者一同</p>
+  </div>
+
+  <div class="disclaimer">
+    <strong>注記</strong>：この年表は現時点で最も内部整合的なバージョンであり、確定稿ではない。
+    特にサハールとヴェルカの従属化の前後関係は意図的に未確定のまま残している。
+    第一論文の数値は信頼区間48〜73%の点推計であり、第三論文も「証明」から「考察」に改題済みである。
+    整合性が高いことと正しいことは別だ。（nK7tRpVc）
+  </div>
+
+  <!-- Ⅰ部 -->
+  <div class="history-section">
+    <p class="history-era">Ⅰ 深部の起源 — 先史〜B.E.5000</p>
+    <h2 class="history-title">プレートの分岐とグランドリッジの形成</h2>
+    <p class="history-body">
+      すべての出発点はw66zbLKtが設定したプレート構造だ。南北に動く二つの巨大プレートが東西境界で衝突し、グランドリッジ（平均標高6,500m、最高峰9,200m級）が極から極まで連続する。東大陸群（ヴァルン/タラッサ/カルナ）は暖流・大河・肥沃な堆積平野という三拍子。西大陸群（ヴェルカ/サハール/コルダ）は寒流・急峻地形・薄い表土という三重苦。tkri7cDV第一論文によれば、紀元前3000年時点での農業余剰率は東が西の2.8倍。5,000年前まで両陣営は同一の技術水準にあったと推定されている。グランドリッジは5,000年間、人の移動だけでなく病原体の自然伝播も遮断してきた。
+    </p>
+  </div>
+
+  <!-- Ⅱ部 -->
+  <div class="history-section">
+    <p class="history-era">Ⅱ 五千年の独立発展 — B.E.5000〜500</p>
+    <h2 class="history-title">農業文明の先行発展と東西の文明型の分岐</h2>
+    <p class="history-body">
+      東大陸群は紀元前1,800年頃に「都市化率15%」の閾値を超え、商業・金融・技術が非線形に加速した。ヴァルン人の官僚制水利国家、タラッサ人の商業港湾都市国家が並行して育つ。西大陸群は同じ閾値に現在まで一度も達していない。だがこれは「劣等」ではなく、農業余剰が物理的に蓄積しにくい地理条件の結果だ。ヴェルカ人は評議制の半遊牧文化、サハール人は隊商法の乾燥地文化、コルダ人は牧畜都市国家連合を、それぞれ東とは無関係に完成させた。
+    </p>
+    <p class="history-body" style="margin-top:0.75rem;">
+      通貨の経路も分岐する。東は穀物倉庫の預かり証から信用経済へ。サハール人は家畜の負債を記録する「骨の割符」へ。この時点では両陣営にどちらが優れているという軸は存在しない。
+    </p>
+  </div>
+
+  <!-- Ⅲ部 -->
+  <div class="history-section">
+    <p class="history-era">Ⅲ 接触 — B.E.500〜200</p>
+    <h2 class="history-title">200年の「対等貿易」という幻——疫病の発見</h2>
+    <p class="history-body">
+      タラッサ人の商船がモンスーン航路を使い、最初に到達したのが南西洋大陸（コルダ人の港）だった。ここから200年以上続く「対等貿易」が始まる——という記録が、長らくこの世界の「誇らしい歴史」として語られてきた。
+    </p>
+    <p class="history-body" style="margin-top:0.75rem;">
+      しかしKs5vTmHqの疫学的修正によって、この200年の実態が変わった。タラッサ人の船員（すでに免疫を持つ無自覚の媒介者）が<strong>ノルド熱</strong>をコルダ沿岸都市に持ち込み、接触開始から数十年でコルダ沿岸人口の3〜5割が失われていた可能性が高い。コルダの都市国家寡頭制は家柄で権力が固定されていたため、平民層が激減しても支配層の家系は生き残り、「自分たちはまだ対等だ」という外交的体面を維持し続けた。
+    </p>
+    <p class="history-note">
+      疫病の伝播そのものに最初の意図的な悪意はなかったが、人口減少に気づいた後もその弱みを利用し続けた選択には明確な責任がある。（Ks5vTmHq「意図と責任の分離」）
+    </p>
+    <p class="history-body" style="margin-top:0.75rem;">
+      逆方向には、リンガ人の峠ネットワークを介して<strong>サハーラ病</strong>が東洋帝国辺境に伝播していた。ヴァルン帝国の官僚制はこれも「軽微な季節病」として上方歪曲し、何百年も帝国の辺境統治の信頼を静かに侵食し続けた。
+    </p>
+  </div>
+
+  <!-- Ⅳ部 -->
+  <div class="history-section">
+    <p class="history-era">Ⅳ 従属化 — B.E.200〜50</p>
+    <h2 class="history-title">三地域それぞれの植民地化経路</h2>
+    <p class="history-body">
+      <strong>コルダ（南西洋）</strong>：人口崩壊と表面的対等の二重構造が200年続いた後、内部分裂（支配層内の権力闘争）を突かれて政治的に解体。初期交易の利益の約78%を東洋帝国が獲得していたが、これは純粋な交渉力の差だけでなく、交易相手国の人口基盤がすでに崩壊しつつあった結果でもある（tkri7cDV 第二論文・モデル修正済み）。
+    </p>
+    <p class="history-body" style="margin-top:0.5rem;">
+      <strong>サハール（赤道西洋）</strong>：氏族連合の合意形成構造そのものが弱点になった。東洋帝国は特定の氏族に貿易特権を与えて連合内に裏切り者を作り、全体の合意形成を不可能にした（ビザンチン将軍問題）。さらに東洋共通通貨の強制流通が「骨の割符」による負債＝信頼ネットワークを物理的に無効化し、社会への攻撃として機能した。
+    </p>
+    <p class="history-body" style="margin-top:0.5rem;">
+      <strong>ヴェルカ（ノルド西洋）</strong>：評議会の全員一致原則（決定不能トラップ）が突かれた。東洋側が交渉の窓を開いてから合意するまでの数か月の遅延の間に、物流拠点が既成事実として構築される。石造建築の技術水準は東のレンガ文明より高度だった可能性があるが、東洋の記録官の価値体系では「都市らしくない分散した石造集落＝未開」と記録された。
+    </p>
+    <p class="history-note">
+      三地域いずれにも共通するのが「文明論的言説」だ。約120万語の植民地期コーパス分析で「単純」「感情的」「部族的」「資源を活用できない」という語彙が繰り返し生産され、地理的・歴史的な格差が「内在的な能力・文化の欠如」として再記述された。
+    </p>
+  </div>
+
+  <!-- Ⅴ部 -->
+  <div class="history-section">
+    <p class="history-era">Ⅴ 南東洋大陸の成立 — B.E.300〜現代</p>
+    <h2 class="history-title">カルナ——もう一つの東</h2>
+    <p class="history-body">
+      南東洋大陸（カルナ人）は西大陸の植民地化とは別の経路で成立した。ヴァルン/タラッサからの移住者が数百年かけて定着した「東洋側の新世界」であり、東洋帝国が西大陸を経営する過程で補給・中継・労働力供給の拠点として機能した。直接の加害者ではないが、構造の受益者だった——現実の日本に近い立ち位置だが、被植民地経験がほぼない分、より純粋に「下請け的受益者」に近い（8q8WqVR8t / qFtsG4fR）。
+    </p>
+  </div>
+
+  <!-- 現在の勢力図 -->
+  <div class="ridge-divider">現在の勢力図</div>
+
+  <div class="power-map">
+    <h3>▣ 現在の力関係マップ</h3>
+    <div class="power-grid">
+      <div class="power-item power-core">
+        <p class="power-label">■ 中核</p>
+        <p class="power-name">東洋帝国（ヴァルン＋タラッサ本土）</p>
+        <p class="power-desc">共通言語・共通通貨・海軍力を統治装置として世界システムの中心を占める。内部の弱点：「情報の上方歪曲」とサハーラ病の慢性的過小報告による辺境統治の侵食。</p>
+      </div>
+      <div class="power-item power-semi">
+        <p class="power-label">▲ 準周辺</p>
+        <p class="power-name">カルナ大陸</p>
+        <p class="power-desc">少子高齢化・西大陸からの労働移民・先住民族の権利問題が重なる。教育課程では植民地経営の収奪的側面が数行で処理される。</p>
+      </div>
+      <div class="power-item power-relay">
+        <p class="power-label">◆ 中継（動揺中）</p>
+        <p class="power-name">リンガ峠帯</p>
+        <p class="power-desc">東洋帝国の土木工事計画（峠ネットワークの関節点無力化）によって独占の存立基盤が揺らいでいる。七家系の秘密分散法と季節変動が現在の防御線。</p>
+      </div>
+      <div class="power-item power-peri">
+        <p class="power-label">● 周辺</p>
+        <p class="power-name">南西洋共和国（旧コルダ）</p>
+        <p class="power-desc">名目上独立だが慢性的な債務デフォルトを繰り返す。旧支配層の家系構造を引き継いだまま構造的に周辺に留まる。</p>
+      </div>
+      <div class="power-item power-peri">
+        <p class="power-label">● 周辺</p>
+        <p class="power-name">赤道西洋・サハール人諸国</p>
+        <p class="power-desc">複数のクライアント国家に分裂。香辛料・染料の単作経済から脱せず、サハーラ病の流行が「またか」という日常ニュースとして東側に消費される。</p>
+      </div>
+      <div class="power-item power-peri">
+        <p class="power-label">● 周辺（自治的保護領）</p>
+        <p class="power-name">ノルド西洋・ヴェルカ人</p>
+        <p class="power-desc">評議会制は存続するが決定不能トラップは温存されたまま。石造建築の技術的価値が、植民地化以前の高度文化の遺産として再評価され始めている。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ⅵ部 -->
+  <div class="history-section">
+    <p class="history-era">Ⅵ 現在進行中の緊張点</p>
+    <h2 class="history-title">トラップ脱出の三条件——現在地</h2>
+    <p class="history-body">
+      <strong>条件A（外生的ショック）</strong>：東洋内部の混乱で西大陸への関与能力が一時的に低下する局面。サハーラ病による辺境統治の慢性的侵食が、この「窓」が開く確率を長期的に高めている。まだ開いていないが、確率は積み上がっている。
+    </p>
+    <p class="history-body" style="margin-top:0.5rem;">
+      <strong>条件B（連帯経路）</strong>：西大陸三地域の政治的・経済的統合。pLx9KvWsが発見した古西語（西大陸六民族の共通祖語）の存在が、初めての連帯の種になり得る。今のところ言語学的発見の段階にとどまっており、政治運動には転化していない。
+    </p>
+    <p class="history-body" style="margin-top:0.5rem;">
+      <strong>条件C（技術漏洩経路）</strong>：リンガ人を介した非公式な技術・情報媒介。東洋帝国の土木工事計画がリンガ人の生存基盤を脅かしている今、彼らが西側との関係を強化する誘因はむしろ強まっている。帝国が独占を破壊しようとする動きそのものが、漏洩経路を太くする可能性がある。
+    </p>
+  </div>
+
+  <!-- 二層構造 -->
+  <div class="ridge-divider">歴史記述の二層構造</div>
+  <p style="font-family:var(--font-sans);font-size:0.85rem;color:var(--ridge);line-height:1.8;margin-bottom:1.5rem;">
+    この年表は「因果の鎖」として整合的に作られているが、結局のところ「東洋経済学者の言葉で書かれた構造史」だ。中立に見えても、中立な視点から書かれてはいない（vT6nRkXp）。そこで以下の二層構造を採用する：
+  </p>
+  <div class="two-layer-box">
+    <div class="layer-item">
+      <p class="layer-label">層①— 証言篇</p>
+      <h3 class="layer-title">ンガ・ソルの断片</h3>
+      <p class="layer-desc">因果なし。観測者ンガ・ソルの言葉。「なぜ」を持たず、「それがあった」という事実だけを順番もなく語る。上書きされない生の記録として残る。</p>
+    </div>
+    <div class="layer-item">
+      <p class="layer-label">層②— 編纂史</p>
+      <h3 class="layer-title">構造史（本年表）</h3>
+      <p class="layer-desc">因果あり。vT6nRkXp・tkri7cDVらが組んだ「最も整合的な仮説」。整合性が高いことと正しいことは別だという留保つき。</p>
+    </div>
+  </div>
+
+  <!-- ンガ・ソル断片 -->
+  <div class="nga-sol-fragment">
+    <p class="nga-sol-label">【ンガ・ソル証言断片 — 七つの分岐】（zV8mQpRt 書き下ろし）</p>
+    <p>ヴァルン、黒土の田。スズメは見た。スズメは黙った。顔のない旅人だけが、その夜、田の畔に立っていた。誰も尋ねず、誰も覚えていない。</p>
+    <p>タラッサ、灯台の下。油は売られた。船は戻らなかった。名もない船客は、それを見ていた。後に、別の港で、誰かにその話をした。誰に話したのかは、誰も知らない。</p>
+    <p>サハール、隊商の宿。客は嘘をついた。塩は届かなかった。もう一人の客は、何も言わず宿に泊まり、朝には去った。</p>
+    <p>ヴェルカ、評議の館。会議は冬を越えなかった。見ていた者だけが、最後まで部屋の隅に残っていた。</p>
+    <p>コルダ、沿岸の村。ある年、家畜より人間の方が早く居なくなった。それを数えていた誰かがいた。数えた数を、誰にも告げなかった。</p>
+    <p>カルナ、赤土の道。約束は結ばれ、すぐに忘れられた。忘れた者たちのそばに、忘れなかった誰かがいた。</p>
+    <p>リンガ、二つの名を持つ峠。「峠は答えを持っていない」と案内人は言った。その言葉をンガ・ソルから借りたことを、案内人自身は知らなかった。</p>
+  </div>
+
+  <div class="ridge-divider">関連ページ</div>
+  <p style="font-family:var(--font-sans);font-size:0.85rem;color:var(--muted);line-height:1.75;">
+    各回の詳細は<a href="../logs/index.html" style="color:var(--ridge);">会話ログ</a>を参照。用語の定義は<a href="../dict/index.html" style="color:var(--ridge);">用語辞典</a>を参照。
+  </p>
+</main>
+
+<footer class="site-footer">
+  <p>BIFURCA — ビフルカ世界観アーカイブ</p>
+  <p style="margin-top:0.4rem;font-size:0.65rem;color:var(--muted);">本サイトの世界観・設定はCC BY-SA 4.0ライセンスの下で公開されています</p>
+</footer>
+<script src="../js/bifurca.js"></script>
+</body>
+</html>

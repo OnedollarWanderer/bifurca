@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ギャラリー — BIFURCA</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.gallery-notice{background:rgba(196,154,60,0.08);border:1px solid var(--highlight);padding:2rem 2.5rem;margin:1.5rem 0;text-align:center;}
+.gallery-notice h2{font-family:var(--font-display);font-size:1.4rem;color:var(--highlight);margin-bottom:0.75rem;}
+.gallery-notice p{font-family:var(--font-sans);font-size:0.85rem;line-height:1.75;color:var(--ridge);max-width:520px;margin:0 auto 1rem;}
+.tag-badge{display:inline-block;background:var(--stone);color:var(--highlight);font-family:var(--font-sans);font-size:0.9rem;font-weight:700;letter-spacing:0.05em;padding:0.5rem 1.25rem;margin:0.5rem auto;border:1px solid var(--highlight);}
+.subtheme-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.5rem 0;}
+.subtheme-item{background:var(--aged);padding:1.5rem 1.25rem;}
+.subtheme-title{font-family:var(--font-serif);font-size:1rem;font-weight:700;color:var(--stone);margin-bottom:0.4rem;}
+.subtheme-desc{font-family:var(--font-sans);font-size:0.78rem;color:var(--muted);line-height:1.6;}
+.award-box{background:var(--stone);padding:2rem;margin:2rem 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--rule);}
+.award-item{background:var(--stone);color:var(--parchment);padding:1.5rem 1.25rem;}
+.award-label{font-family:var(--font-sans);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--highlight);margin-bottom:0.5rem;}
+.award-title{font-family:var(--font-serif);font-size:0.95rem;font-weight:700;color:var(--aged);margin-bottom:0.4rem;}
+.award-desc{font-family:var(--font-sans);font-size:0.75rem;color:var(--muted);line-height:1.6;}
+@media(max-width:600px){.award-box{grid-template-columns:1fr;}.subtheme-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html" class="site-title">BIFURCA<span>ビフルカ世界観アーカイブ</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Top</a>
+      <a href="../logs/index.html">会話ログ</a>
+      <a href="../dict/index.html">用語辞典</a>
+      <a href="../worldhistory/index.html">世界史</a>
+      <a href="../guideline/index.html">創作ガイド</a>
+    </nav>
+    <a href="../search.html" class="search-icon-link">🔍 検索</a>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <div class="page-hero">
+    <p class="page-eyebrow">Gallery — ギャラリー</p>
+    <h1 class="page-title">ビフルカを描け</h1>
+    <p class="page-title-ja">ファンアートキャンペーン & 公認創作作品</p>
+  </div>
+
+  <div class="gallery-notice">
+    <h2>キャンペーン 受付中</h2>
+    <p>
+      「ビフルカに生きる誰かを描いてください」<br>
+      小説・イラスト・コミック・BGM・動画——形式は問いません。<br>
+      参加費無料、1人何点でも可。
+    </p>
+    <div>
+      <span class="tag-badge">#ビフルカ</span>
+    </div>
+    <p style="font-size:0.78rem;margin-top:0.75rem;">
+      Twitter/X または pixiv に <strong>#ビフルカ</strong> タグをつけて投稿してください。
+    </p>
+    <a href="../guideline/index.html" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--ridge);text-decoration:none;border:1px solid var(--rule);padding:0.5rem 1rem;display:inline-block;margin-top:0.5rem;">創作ガイドラインを読む →</a>
+  </div>
+
+  <!-- サブテーマ -->
+  <div class="ridge-divider">サブテーマ（選択自由）</div>
+  <div class="subtheme-grid">
+    <div class="subtheme-item">
+      <div class="subtheme-title">🍲 食卓</div>
+      <div class="subtheme-desc">七民族の料理・食の場面。三層粥、客人の皿、二味干飯——食卓に民族の価値観が現れる。</div>
+    </div>
+    <div class="subtheme-item">
+      <div class="subtheme-title">🏔 旅人</div>
+      <div class="subtheme-desc">グランドリッジを越える人物・峠の風景。東と西の間に立つ者だけが見る景色。</div>
+    </div>
+    <div class="subtheme-item">
+      <div class="subtheme-title">🌙 掟</div>
+      <div class="subtheme-desc">各民族の文化・儀式・日常の一場面。ジンクス、祭礼、評議会、骨の割符——掟の中に生きる人を。</div>
+    </div>
+    <div class="subtheme-item">
+      <div class="subtheme-title">👁 証人</div>
+      <div class="subtheme-desc">ンガ・ソルの気配を感じる場面。姿を描いても描かなくてもよい。その存在の痕跡だけを。</div>
+    </div>
+  </div>
+
+  <!-- 賞 -->
+  <div class="ridge-divider">賞</div>
+  <div class="award-box">
+    <div class="award-item">
+      <div class="award-label">最優秀賞 1点</div>
+      <div class="award-title">公式トップへの恒久掲載</div>
+      <div class="award-desc">サイトトップへの永久掲載 ＋「ビフルカ世界観 公認ビジュアル」クレジット ＋ 辞典改訂版への掲載 ＋ 公式SNSコメント</div>
+    </div>
+    <div class="award-item">
+      <div class="award-label">優秀賞 3〜5点</div>
+      <div class="award-title">ギャラリーへの恒久掲載</div>
+      <div class="award-desc">公式サイトギャラリーへの永久掲載 ＋ クレジット表記 ＋ 公式SNSコメント</div>
+    </div>
+    <div class="award-item">
+      <div class="award-label">参加賞 全応募者</div>
+      <div class="award-title">コミュニティロール付与</div>
+      <div class="award-desc">Discordの「キャンペーン参加者」ロール ＋ 応募作品のDiscord専用チャンネルへの掲載（本人許可の上）</div>
+    </div>
+  </div>
+
+  <p style="font-family:var(--font-sans);font-size:0.75rem;color:var(--muted);line-height:1.75;margin-top:1rem;">
+    ※ 応募作品の著作権は応募者本人に帰属します。運営は応募作品を公式サイト・公式SNSに掲載する権利を持ちます。グッズ化等の商業利用を行う場合は別途応募者本人と契約を締結します。
+  </p>
+
+  <!-- 作品掲載予定エリア -->
+  <div class="ridge-divider" style="margin-top:3rem;">受賞作品・参加作品</div>
+  <div style="border:2px dashed rgba(74,63,53,0.2);padding:3rem 2rem;text-align:center;color:var(--muted);">
+    <p style="font-family:var(--font-sans);font-size:0.88rem;line-height:1.8;">
+      キャンペーン結果発表後、こちらに作品が掲載されます。<br>
+      <strong>#ビフルカ</strong> タグの投稿を楽しみにしています。
+    </p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>BIFURCA — ビフルカ世界観アーカイブ</p>
+  <p style="font-size:0.65rem;margin-top:0.4rem;">ビフルカ世界観はCC BY-SA 4.0ライセンスの下で公開されています</p>
+</footer>
+<script src="../js/bifurca.js"></script>
+</body>
+</html>

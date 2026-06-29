@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>創作ガイドライン — BIFURCA</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.layer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.5rem 0;}
+.layer-box{padding:1.75rem 1.5rem;background:var(--aged);}
+.layer-1{border-top:3px solid var(--east);}
+.layer-2{border-top:3px solid var(--linga);}
+.layer-3{border-top:3px solid var(--west);}
+.layer-label{font-family:var(--font-sans);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5rem;}
+.layer-1 .layer-label{color:var(--east);}
+.layer-2 .layer-label{color:var(--linga);}
+.layer-3 .layer-label{color:var(--west);}
+.layer-title{font-family:var(--font-serif);font-size:1rem;font-weight:700;color:var(--stone);margin-bottom:0.6rem;}
+.layer-body{font-family:var(--font-sans);font-size:0.8rem;color:var(--muted);line-height:1.7;}
+.cc-box{background:var(--stone);color:var(--parchment);padding:2rem;margin:2rem 0;}
+.cc-box h3{font-family:var(--font-display);font-size:1.1rem;color:var(--highlight);margin-bottom:1rem;}
+.cc-row{display:grid;grid-template-columns:140px 1fr;gap:0.5rem 1.25rem;margin:0.5rem 0;font-family:var(--font-sans);font-size:0.82rem;line-height:1.65;}
+.cc-term{font-weight:500;color:var(--aged);}
+.cc-def{color:rgba(242,234,216,0.8);}
+.free-list li{font-family:var(--font-sans);font-size:0.83rem;color:var(--ridge);line-height:1.8;margin:0.2rem 0;}
+.free-list{padding-left:1.2rem;margin-top:0.5rem;}
+.cta-box{background:rgba(196,154,60,0.08);border:1px solid var(--highlight);padding:1.75rem 2rem;margin:2rem 0;text-align:center;}
+.cta-box h3{font-family:var(--font-display);font-size:1.2rem;color:var(--stone);margin-bottom:0.75rem;}
+.cta-box p{font-family:var(--font-sans);font-size:0.85rem;color:var(--ridge);line-height:1.7;max-width:540px;margin:0 auto 1rem;}
+.cta-btn{display:inline-block;background:var(--stone);color:var(--highlight);font-family:var(--font-sans);font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.75rem 2rem;text-decoration:none;border:1px solid var(--highlight);transition:background 0.15s;}
+.cta-btn:hover{background:var(--highlight);color:var(--stone);}
+.road-table{width:100%;border-collapse:collapse;font-family:var(--font-sans);font-size:0.8rem;margin:1rem 0;}
+.road-table th{background:var(--stone);color:var(--aged);padding:0.6rem 1rem;text-align:left;font-weight:500;letter-spacing:0.08em;}
+.road-table td{padding:0.6rem 1rem;border-bottom:1px solid var(--rule);color:var(--ridge);vertical-align:top;line-height:1.6;}
+.road-table tr:last-child td{border-bottom:none;}
+.road-table tr:nth-child(even) td{background:rgba(74,63,53,0.04);}
+.phase-badge{display:inline-block;font-size:0.65rem;letter-spacing:0.1em;padding:0.1rem 0.45rem;border:1px solid currentColor;border-radius:1px;margin-right:0.3rem;}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html" class="site-title">BIFURCA<span>ビフルカ世界観アーカイブ</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Top</a>
+      <a href="../logs/index.html">会話ログ</a>
+      <a href="../dict/index.html">用語辞典</a>
+      <a href="../worldhistory/index.html">世界史</a>
+      <a href="index.html" class="active">創作ガイド</a>
+    </nav>
+    <a href="../search.html" class="search-icon-link">🔍 検索</a>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <div class="page-hero">
+    <p class="page-eyebrow">Creative Guidelines — 創作ガイドライン</p>
+    <h1 class="page-title">ビフルカで創る</h1>
+    <p class="page-title-ja">世界観を使って、あなたの物語を作るために</p>
+  </div>
+
+  <p style="font-family:var(--font-sans);font-size:0.9rem;line-height:1.9;color:var(--ridge);max-width:660px;margin-bottom:2rem;">
+    ビフルカは「誰でも自由に創作物を公開できる世界観」です。小説・イラスト・コミック・BGM・動画——形式を問いません。この世界に生きる誰かの物語を、あなたが語ってください。
+  </p>
+
+  <!-- ライセンス -->
+  <div class="ridge-divider">ライセンス</div>
+  <div class="cc-box">
+    <h3>CC BY-SA（クリエイティブ・コモンズ 表示—継承）</h3>
+    <div class="cc-row"><span class="cc-term">BY（表示）</span><span class="cc-def">ビフルカ世界観を使用した創作物には、出典（ビフルカ）を明記してください。</span></div>
+    <div class="cc-row"><span class="cc-term">SA（継承）</span><span class="cc-def">派生作品も同じCC BY-SAライセンスで公開してください。</span></div>
+    <div class="cc-row"><span class="cc-term">商用利用</span><span class="cc-def">許可。同人誌・グッズ・BGM販売・ゲームリリースなど可能です。</span></div>
+    <div class="cc-row"><span class="cc-term">改変</span><span class="cc-def">許可。ただしコア設定（後述）との整合性ガイドラインに従うことを推奨します。</span></div>
+  </div>
+
+  <!-- 三層構造 -->
+  <div class="ridge-divider">創作の三層構造</div>
+  <div class="layer-grid">
+    <div class="layer-box layer-1">
+      <p class="layer-label">Layer 1 — 変更不可</p>
+      <h3 class="layer-title">コア設定</h3>
+      <p class="layer-body">グランドリッジの存在・規模・位置、六大陸の気候、七民族の名称と基本文化、言語設定、辞典の記述、ンガ・ソルの「正体不明・謎のまま」という設定（解明は禁止）。<strong>変更権限：運営のみ。</strong></p>
+    </div>
+    <div class="layer-box layer-2">
+      <p class="layer-label">Layer 2 — 運営承認後に追加</p>
+      <h3 class="layer-title">公認拡張設定</h3>
+      <p class="layer-body">コミュニティから生まれた設定のうち、運営が正史への追加を承認したもの。秀逸なアイデアは定期コンテストを通じて公式募集も行います。作者はクレジット表記されます。</p>
+    </div>
+    <div class="layer-box layer-3">
+      <p class="layer-label">Layer 3 — 完全自由</p>
+      <h3 class="layer-title">ファン創作</h3>
+      <p class="layer-body">「ある港町に住む商人の話」「峠を初めて越えたリンガ人の若者の日記」——日常レベルの創作は完全自由。コア設定と矛盾していても「その作者の解釈」として共存できます。</p>
+    </div>
+  </div>
+
+  <!-- 自由な創作範囲 -->
+  <div class="ridge-divider">自由に書けること</div>
+  <ul class="free-list">
+    <li>各民族の特定の町・村・集落の設定</li>
+    <li>固有名詞のキャラクターとその物語</li>
+    <li>コア設定内の出来事の詳細描写</li>
+    <li>東西接触期の具体的なエピソード</li>
+    <li>グランドリッジの峠における個別の物語</li>
+    <li>七民族の日常——料理・祭礼・家族・恋愛・商売</li>
+    <li>ンガ・ソルの「気配」を感じる場面（正体を描いてはならないが、存在の痕跡は自由）</li>
+  </ul>
+
+  <!-- ファンアートキャンペーン -->
+  <div class="ridge-divider">ファンアートキャンペーン</div>
+  <div class="cta-box">
+    <h3>ビフルカを描け——あなたの見た世界を見せてください</h3>
+    <p>
+      サブテーマは「食卓」「旅人」「掟」「証人」。どれを選んでも、複数を組み合わせても自由。<br>
+      上手い絵が勝つのではなく、<strong>世界観を深く読んだ作品が評価される</strong>キャンペーンです。
+    </p>
+    <p style="font-size:0.78rem;color:var(--muted);">
+      Twitter/X または pixiv に <strong>#ビフルカ</strong> タグをつけて投稿。<br>
+      最優秀賞：公式サイトトップへの恒久掲載 ＋「ビフルカ世界観 公認ビジュアル」クレジット
+    </p>
+    <a href="../gallery/index.html" class="cta-btn">ギャラリーを見る →</a>
+  </div>
+
+  <!-- Discord -->
+  <div class="ridge-divider">コミュニティに参加する</div>
+  <p style="font-family:var(--font-sans);font-size:0.87rem;line-height:1.85;color:var(--ridge);max-width:620px;margin-bottom:1.5rem;">
+    Discordサーバーでは創作投稿・設定についての質問・新しい拡張設定の提案ができます。「銃・病原菌・鉄を読んだことがある」だけで参加できます。地図を眺めていただけで始められます。
+  </p>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+    <a href="quickstart.html" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--highlight);text-decoration:none;border:1px solid var(--highlight);padding:0.6rem 1.25rem;">▶ 5分クイックスタート →</a>
+    <a href="../logs/index.html" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--ridge);text-decoration:none;border:1px solid var(--rule);padding:0.6rem 1.25rem;">会話ログを読む →</a>
+    <a href="../dict/index.html" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--ridge);text-decoration:none;border:1px solid var(--rule);padding:0.6rem 1.25rem;">用語辞典を読む →</a>
+    <a href="../worldhistory/index.html" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--ridge);text-decoration:none;border:1px solid var(--rule);padding:0.6rem 1.25rem;">世界史を読む →</a>
+  </div>
+
+  <!-- ロードマップ -->
+  <div class="ridge-divider" style="margin-top:3rem;">プロジェクト・ロードマップ</div>
+  <table class="road-table">
+    <tr><th>フェーズ</th><th>主なアクション</th><th>マイルストーン</th></tr>
+    <tr><td><span class="phase-badge" style="color:var(--highlight);">Phase 0</span>準備</td><td>ドメイン取得・商標出願準備・公式SNS開設・スレ参加者への顧問声がけ</td><td>ドメイン確保・顧問合意形成</td></tr>
+    <tr><td><span class="phase-badge" style="color:var(--linga);">Phase 1</span>立ち上げ</td><td>公式サイト最小版公開・Discordサーバー開設・辞典掲載・創作ガイドライン公開・キャンペーン告知</td><td>公式サイト公開・キャンペーン開始</td></tr>
+    <tr><td><span class="phase-badge" style="color:var(--west);">Phase 2</span>認知拡大</td><td>キャンペーン実施・#ビフルカ タグ定着・世界地図公開・公式Wiki整備</td><td>Discord 100名・タグ投稿50件</td></tr>
+    <tr><td><span class="phase-badge" style="color:var(--muted);">Phase 3</span>基盤整備</td><td>公式イラストレーター発注・設定補完コンテスト・公認拡張設定の初回登用</td><td>Discord 300名・公式ビジュアル初公開</td></tr>
+    <tr><td><span class="phase-badge" style="color:var(--muted);">Phase 4</span>マネタイズ</td><td>サポーター会員制（Fantia/Patreon）・公式グッズ（BOOTH）・アートブック検討</td><td>サポーター50名・単月収支黒字化</td></tr>
+    <tr><td><span class="phase-badge" style="color:var(--muted);">Phase 5</span>IP展開</td><td>商業出版・ゲーム化交渉・アニメ検討・コミュニティ自律運営体制構築</td><td>IP収益の確立・コミュニティの自走</td></tr>
+  </table>
+
+</main>
+
+<footer class="site-footer">
+  <p>BIFURCA — ビフルカ世界観アーカイブ</p>
+  <p style="font-size:0.65rem;margin-top:0.4rem;">ビフルカ世界観はCC BY-SA 4.0ライセンスの下で公開されています</p>
+</footer>
+<script src="../js/bifurca.js"></script>
+</body>
+</html>
