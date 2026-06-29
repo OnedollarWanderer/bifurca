@@ -7,20 +7,7 @@
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <a href="../index.html" class="site-title">BIFURCA<span>ビフルカ世界観アーカイブ</span></a>
-    <nav class="site-nav">
-      <a href="../index.html">Top</a>
-      <a href="../logs/index.html">会話ログ</a>
-      <a href="index.html" class="active">用語辞典</a>
-      <a href="../worldhistory/index.html">世界史</a>
-      <a href="../guideline/index.html">創作ガイド</a>
-      <a href="../gallery/index.html">ギャラリー</a>
-    </nav>
-    <a href="../search.html" class="search-icon-link">🔍 検索</a>
-  </div>
-</header>
+<header class="site-header" data-component="header"></header>
 <main class="page-wrap">
   <div class="page-hero">
     <p class="page-eyebrow">Dictionary / 第二部 — 民族・文化</p>
@@ -37,6 +24,10 @@
       <img src="../assets/images/religion_karna.png" alt="カルナ人の信仰 — 夕暮れの灯籠儀式（先住民との記憶）" loading="lazy">
       <div class="dict-image-caption">カルナ人の信仰 — 夕暮れの灯籠儀式（先住民との記憶）</div>
     </div>
+    <div class="dict-image-item">
+      <img src="../assets/images/character_karna.png" alt="カルナ人の衣装設定 — 記録者エルとラーン・ティリヤ" loading="lazy">
+      <div class="dict-image-caption">カルナ人の衣装設定 — 記録者エルとラーン・ティリヤ</div>
+    </div>
   </div>
     <div class="dict-def" style="font-size:0.95rem;line-height:2;">南東洋大陸の入植者の子孫。東洋海洋帝国による植民地化の過程で形成された、入植者と被植民地者の複合的なアイデンティティを持つ民族。先住の民との約束が世代を経て破られた歴史を抱え、先住民問題の時限爆弾という失政パターンを持つ。</div>
     <blockquote class="dict-quote" style="margin:1.5rem 0;">「語られないことそのものが民話の構造になっている」（zV8mQpRt）</blockquote>
@@ -49,12 +40,19 @@
     <a href="kansoku-okite.html" class="dict-sibling-prev">観測の掟</a>
     <a href="index.html" class="dict-sibling-index">辞典一覧</a>
     <a href="katari-te.html" class="dict-sibling-next">語り手</a>
+  
+  <div class="dict-charsheet">
+    <button class="dict-charsheet-toggle">
+      <span>📋 カルナ人 キャラクターシート（設定資料・クリックで展開）</span>
+      <span class="toggle-arrow">▼</span>
+    </button>
+    <div class="dict-charsheet-body">
+      <img src="../assets/images/character_karna.png" alt="カルナ人 キャラクターシート" loading="lazy">
+    </div>
   </div>
+</div>
 </main>
-<footer class="site-footer">
-  <p>BIFURCA — ビフルカ世界観アーカイブ</p>
-  <p style="margin-top:0.4rem;font-size:0.65rem;color:var(--muted);">本サイトの世界観・設定はCC BY-SA 4.0ライセンスの下で公開されています</p>
-</footer>
+<footer class="site-footer" data-component="footer"></footer>
 <script src="../js/bifurca.js"></script>
 </body>
 </html>

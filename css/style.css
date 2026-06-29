@@ -658,3 +658,83 @@ a.dict-tag:hover {
   .dict-image-grid { grid-template-columns: 1fr; }
   .dict-image-item img { height: 220px; }
 }
+
+/* ── 3カラム画像グリッド（キャラクター追加後） ── */
+.dict-image-grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+@media (max-width: 700px) {
+  .dict-image-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── 会話ログ内 挿絵ブロック（七つの夜） ── */
+.log-illust-block {
+  margin: 2.5rem 0 1rem;
+  padding: 0;
+}
+.log-illust-figure {
+  margin: 0;
+  position: relative;
+  background: var(--stone);
+  overflow: hidden;
+}
+.log-illust-img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+.log-illust-caption {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.65rem 1.25rem;
+  background: rgba(28, 22, 16, 0.88);
+}
+.log-illust-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--highlight);
+}
+.log-illust-title {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: var(--aged);
+}
+
+/* ── 辞典ページ キャラクターシート展開パネル ── */
+.dict-charsheet {
+  margin: 2rem 0;
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--ridge);
+  background: var(--aged);
+}
+.dict-charsheet-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  cursor: pointer;
+  background: rgba(28,22,16,0.04);
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--ridge);
+}
+.dict-charsheet-toggle:hover { background: rgba(28,22,16,0.08); }
+.dict-charsheet-toggle .toggle-arrow { color: var(--highlight); }
+.dict-charsheet-body { display: none; padding: 0; }
+.dict-charsheet-body.open { display: block; }
+.dict-charsheet-body img {
+  width: 100%;
+  display: block;
+  border-top: 1px solid var(--rule);
+}

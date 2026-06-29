@@ -5,22 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>用語辞典 — BIFURCA</title>
 <link rel="stylesheet" href="../css/style.css">
+<style>
+.dict-filter-tag{background:var(--aged);color:var(--ridge);border:1px solid var(--rule);font-family:var(--font-sans);font-size:0.72rem;letter-spacing:0.08em;padding:0.35rem 0.8rem;cursor:pointer;transition:background 0.12s;}
+.dict-filter-tag:hover{background:var(--stone);color:var(--parchment);}
+.dict-filter-tag.active{background:var(--stone);color:var(--highlight);border-color:var(--highlight);}
+.dict-entry.hidden{display:none;}
+.dict-section.hidden{display:none;}
+</style>
 </head>
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <a href="../index.html" class="site-title">BIFURCA<span>ビフルカ世界観アーカイブ</span></a>
-    <nav class="site-nav">
-      <a href="../index.html">Top</a>
-      <a href="../logs/index.html">会話ログ</a>
-      <a href="index.html" class="active">用語辞典</a>
-      <a href="../worldhistory/index.html">世界史</a>
-      <a href="../guideline/index.html">創作ガイド</a>
-      <a href="../gallery/index.html">ギャラリー</a>
-    </nav>
-    <a href="../search.html" class="search-icon-link">🔍 検索</a>
-  </div>
-</header>
+<header class="site-header" data-component="header"></header>
 <main class="page-wrap">
   <div class="page-hero">
     <p class="page-eyebrow">Dictionary — 用語辞典</p>
@@ -31,6 +25,27 @@
     「かつては一つだった幹のことを、二つの枝はそれぞれ別の名で呼ぶ」<br>
     <span style="font-style:normal;font-size:0.75rem;color:var(--muted);">——リンガ人の諺（出典不明）</span>
   </blockquote>
+
+  <!-- 辞典内検索・絞り込み -->
+  <div id="dict-filter-bar" style="margin:0 0 2rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;">
+    <div style="display:flex;flex:1;min-width:220px;border:2px solid var(--ridge);background:var(--aged);">
+      <input type="text" id="dict-filter-input" placeholder="キーワードで絞り込み..." autocomplete="off"
+        style="flex:1;border:none;background:transparent;font-family:var(--font-sans);font-size:0.9rem;padding:0.6rem 1rem;color:var(--ink);outline:none;">
+    </div>
+    <div style="display:flex;gap:0.25rem;flex-wrap:wrap;">
+      <button class="dict-filter-tag active" data-section="all" onclick="filterSection(this,'all')">すべて</button>
+      <button class="dict-filter-tag" data-section="地理" onclick="filterSection(this,'地理')">地理</button>
+      <button class="dict-filter-tag" data-section="民族" onclick="filterSection(this,'民族')">民族</button>
+      <button class="dict-filter-tag" data-section="政治" onclick="filterSection(this,'政治')">政治</button>
+      <button class="dict-filter-tag" data-section="民話" onclick="filterSection(this,'民話')">民話</button>
+      <button class="dict-filter-tag" data-section="料理" onclick="filterSection(this,'料理')">料理</button>
+      <button class="dict-filter-tag" data-section="観測者" onclick="filterSection(this,'観測者')">観測者</button>
+      <button class="dict-filter-tag" data-section="俗信" onclick="filterSection(this,'俗信')">俗信</button>
+      <button class="dict-filter-tag" data-section="宗教" onclick="filterSection(this,'宗教')">宗教</button>
+    </div>
+    <div id="dict-filter-count" style="font-family:var(--font-sans);font-size:0.78rem;color:var(--muted);min-width:5rem;"></div>
+  </div>
+  <div id="dict-no-result" style="display:none;text-align:center;color:var(--muted);font-family:var(--font-sans);font-size:0.88rem;padding:3rem 0;">一致する項目が見つかりませんでした。</div>
   <section class="dict-section">
   <p class="dict-section-title">第一部 — 地理・地質 / Geography &amp; Geology</p>
   <div class="dict-entry">
@@ -707,10 +722,72 @@
 </div>
 </section>
 </main>
-<footer class="site-footer">
-  <p>BIFURCA — ビフルカ世界観アーカイブ</p>
-  <p style="margin-top:0.4rem;font-size:0.65rem;color:var(--muted);">本サイトの世界観・設定はCC BY-SA 4.0ライセンスの下で公開されています</p>
-</footer>
+<footer class="site-footer" data-component="footer"></footer>
 <script src="../js/bifurca.js"></script>
+<script>
+// 辞典絞り込みフィルタ
+const SECTION_MAP = {
+  '地理': ['第一部'],
+  '民族': ['第二部'],
+  '政治': ['第三', '第四', '第五'],
+  '民話': ['第六部'],
+  '料理': ['第七部'],
+  '観測者': ['第八部'],
+  '俗信': ['第九部'],
+  '宗教': ['第十部'],
+};
+
+let currentSection = 'all';
+let currentQuery = '';
+
+function updateFilter() {
+  const entries = document.querySelectorAll('.dict-entry');
+  const sections = document.querySelectorAll('.dict-section');
+  let visible = 0;
+
+  entries.forEach(el => {
+    const text = el.textContent.toLowerCase();
+    const qMatch = !currentQuery || currentQuery.split(/\s+/).every(w => text.includes(w.toLowerCase()));
+
+    let sMatch = true;
+    if (currentSection !== 'all') {
+      const sectionTitle = el.closest('.dict-section')?.querySelector('.dict-section-title')?.textContent || '';
+      const keys = SECTION_MAP[currentSection] || [];
+      sMatch = keys.some(k => sectionTitle.includes(k));
+    }
+
+    if (qMatch && sMatch) { el.classList.remove('hidden'); visible++; }
+    else { el.classList.add('hidden'); }
+  });
+
+  // セクションタイトルの表示制御
+  sections.forEach(sec => {
+    const visibleEntries = sec.querySelectorAll('.dict-entry:not(.hidden)');
+    sec.classList.toggle('hidden', visibleEntries.length === 0);
+  });
+
+  const countEl = document.getElementById('dict-filter-count');
+  const noResult = document.getElementById('dict-no-result');
+  if (currentQuery || currentSection !== 'all') {
+    countEl.textContent = visible + ' 件';
+    noResult.style.display = visible === 0 ? 'block' : 'none';
+  } else {
+    countEl.textContent = '';
+    noResult.style.display = 'none';
+  }
+}
+
+function filterSection(btn, section) {
+  document.querySelectorAll('.dict-filter-tag').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentSection = section;
+  updateFilter();
+}
+
+document.getElementById('dict-filter-input').addEventListener('input', e => {
+  currentQuery = e.target.value.trim();
+  updateFilter();
+});
+</script>
 </body>
 </html>

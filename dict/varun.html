@@ -7,20 +7,7 @@
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <a href="../index.html" class="site-title">BIFURCA<span>ビフルカ世界観アーカイブ</span></a>
-    <nav class="site-nav">
-      <a href="../index.html">Top</a>
-      <a href="../logs/index.html">会話ログ</a>
-      <a href="index.html" class="active">用語辞典</a>
-      <a href="../worldhistory/index.html">世界史</a>
-      <a href="../guideline/index.html">創作ガイド</a>
-      <a href="../gallery/index.html">ギャラリー</a>
-    </nav>
-    <a href="../search.html" class="search-icon-link">🔍 検索</a>
-  </div>
-</header>
+<header class="site-header" data-component="header"></header>
 <main class="page-wrap">
   <div class="page-hero">
     <p class="page-eyebrow">Dictionary / 第二部 — 民族・文化</p>
@@ -37,6 +24,10 @@
       <img src="../assets/images/religion_varun.png" alt="ヴァルン人の信仰 — 法典を管理する神官と天秤の神殿" loading="lazy">
       <div class="dict-image-caption">ヴァルン人の信仰 — 法典を管理する神官と天秤の神殿</div>
     </div>
+    <div class="dict-image-item">
+      <img src="../assets/images/character_varun.png" alt="ヴァルン人の衣装設定 — 農耕民族アルヴォルとエイラ" loading="lazy">
+      <div class="dict-image-caption">ヴァルン人の衣装設定 — 農耕民族アルヴォルとエイラ</div>
+    </div>
   </div>
     <div class="dict-def" style="font-size:0.95rem;line-height:2;">ノルド東洋大陸の平原農耕民族。農業余剰を基盤とした官僚制中央集権国家を形成した。情報の「上方歪曲」（不都合な情報が上位に伝わらない構造的歪み）という失政パターンを持つ。ヴァルン語には「上に伝える」用と「対等に伝える」用の異なる動詞が存在する。世界をヴァルタ・セン（縫われた大地）と呼ぶ。</div>
     <blockquote class="dict-quote" style="margin:1.5rem 0;">「情報の上方歪曲という失政パターンが、ジンクスの形で日常レベルに刷り込まれている」（zV8mQpRt）</blockquote>
@@ -49,12 +40,19 @@
     <a href="varun-jinx.html" class="dict-sibling-prev">遅れる影（ヴァルン人）</a>
     <a href="index.html" class="dict-sibling-index">辞典一覧</a>
     <a href="varuta-sen.html" class="dict-sibling-next">ヴァルタ・セン</a>
+  
+  <div class="dict-charsheet">
+    <button class="dict-charsheet-toggle">
+      <span>📋 ヴァルン人 キャラクターシート（設定資料・クリックで展開）</span>
+      <span class="toggle-arrow">▼</span>
+    </button>
+    <div class="dict-charsheet-body">
+      <img src="../assets/images/character_varun.png" alt="ヴァルン人 キャラクターシート" loading="lazy">
+    </div>
   </div>
+</div>
 </main>
-<footer class="site-footer">
-  <p>BIFURCA — ビフルカ世界観アーカイブ</p>
-  <p style="margin-top:0.4rem;font-size:0.65rem;color:var(--muted);">本サイトの世界観・設定はCC BY-SA 4.0ライセンスの下で公開されています</p>
-</footer>
+<footer class="site-footer" data-component="footer"></footer>
 <script src="../js/bifurca.js"></script>
 </body>
 </html>
