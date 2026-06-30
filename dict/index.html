@@ -19,7 +19,7 @@
   <div class="page-hero">
     <p class="page-eyebrow">Dictionary — 用語辞典</p>
     <h1 class="page-title">ビフルカ世界用語辞典</h1>
-    <p class="page-title-ja">第二版（第九部まで収録）　編纂：pLx9KvWs（歴史言語学・辞書編纂）</p>
+    <p class="page-title-ja">第三版（第十三部まで収録）　編纂：pLx9KvWs（歴史言語学・辞書編纂）</p>
   </div>
   <blockquote style="font-family:var(--font-serif);font-style:italic;color:var(--ridge);border-left:3px solid var(--highlight);padding:1rem 1.5rem;margin-bottom:2rem;background:rgba(196,154,60,0.04);font-size:0.9rem;line-height:1.9;">
     「かつては一つだった幹のことを、二つの枝はそれぞれ別の名で呼ぶ」<br>
@@ -42,6 +42,9 @@
       <button class="dict-filter-tag" data-section="観測者" onclick="filterSection(this,'観測者')">観測者</button>
       <button class="dict-filter-tag" data-section="俗信" onclick="filterSection(this,'俗信')">俗信</button>
       <button class="dict-filter-tag" data-section="宗教" onclick="filterSection(this,'宗教')">宗教</button>
+      <button class="dict-filter-tag" data-section="疫学" onclick="filterSection(this,'疫学')">疫学</button>
+      <button class="dict-filter-tag" data-section="都市" onclick="filterSection(this,'都市')">都市</button>
+      <button class="dict-filter-tag" data-section="歴史" onclick="filterSection(this,'歴史')">歴史</button>
     </div>
     <div id="dict-filter-count" style="font-family:var(--font-sans);font-size:0.78rem;color:var(--muted);min-width:5rem;"></div>
   </div>
@@ -721,6 +724,35 @@
   </a>
 </div>
 </section>
+<section class="dict-section">
+  <p class="dict-section-title">第十三部 — 通史・歴史記述 / History &amp; Historiography</p>
+  <p style="font-family:var(--font-sans);font-size:0.8rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;">比較史家vT6nRkXpが地質から現在の勢力図までを一本の年表に統合。あわせて「証言篇」と「編纂史」という、ビフルカ世界の歴史記述そのものを規定する二層構造が確立された。</p>
+<div class="dict-entry">
+  <a href="bifurca-tsushi.html">
+    <div class="dict-headword">ビフルカ通史 試稿 <span class="dict-reading">（びふるかつうし・しこう）</span></div>
+    <div class="dict-meta">固有名詞・編纂史</div>
+    <div class="dict-def">比較史家vT6nRkXpが編纂した、地質の起源から現在の勢力図までを統合する年表。Ⅰ部（深部の起源）〜Ⅵ部（現在進行中の緊張点）で構成。「最も内部整合的な仮説」であり確定稿ではないと明記されている。</div>
+    <p class="dict-quote">「整合性が高いことと正しいことは別だ」（nK7tRpVc）</p>
+    <div class="dict-related"><a href="shogen-hen.html" class="dict-tag">証言篇／編纂史</a><a href="norudo-netsu.html" class="dict-tag">ノルド熱</a><a href="ko-sei-go.html" class="dict-tag">古西語</a></div>
+  </a>
+</div>
+<div class="dict-entry">
+  <a href="shogen-hen.html">
+    <div class="dict-headword">証言篇／編纂史 <span class="dict-reading">（しょうげんへん／へんさんし）</span></div>
+    <div class="dict-meta">固有名詞・記述論</div>
+    <div class="dict-def">ビフルカ世界の歴史記述を二層に分ける方法論。層①証言篇（ンガ・ソルの因果なき言葉）と層②編纂史（因果の鎖で構成された通史）。両者は意図的に統合されず、「統合されないこと」自体が歴史記述の誠実さを保証するとされる。</div>
+    <div class="dict-related"><a href="bifurca-tsushi.html" class="dict-tag">ビフルカ通史 試稿</a><a href="nga-sol.html" class="dict-tag">ンガ・ソル</a><a href="nanatsu-no-bunki.html" class="dict-tag">七つの分岐</a></div>
+  </a>
+</div>
+<div class="dict-entry">
+  <a href="nanatsu-no-bunki.html">
+    <div class="dict-headword">七つの分岐 <span class="dict-reading">（ななつのぶんき）</span></div>
+    <div class="dict-meta">固有名詞・ンガ・ソル証言断片</div>
+    <div class="dict-def">七民族それぞれの決定的瞬間を、ンガ・ソルの視点（証言篇）で記録した断片集。年号も因果も持たない。コルダの断片は、人口減少そのものを記憶する伝承の欠落を埋めるために新たに作られた。</div>
+    <div class="dict-related"><a href="shogen-hen.html" class="dict-tag">証言篇／編纂史</a><a href="ito-sekinin.html" class="dict-tag">意図と責任の分離</a><a href="koruda.html" class="dict-tag">コルダ人</a></div>
+  </a>
+</div>
+</section>
 </main>
 <footer class="site-footer" data-component="footer"></footer>
 <script src="../js/bifurca.js"></script>
@@ -735,6 +767,9 @@ const SECTION_MAP = {
   '観測者': ['第八部'],
   '俗信': ['第九部'],
   '宗教': ['第十部'],
+  '疫学': ['第十一部'],
+  '都市': ['第十二部'],
+  '歴史': ['第十三部'],
 };
 
 let currentSection = 'all';
