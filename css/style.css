@@ -637,10 +637,12 @@ a.dict-tag:hover {
   height: 280px;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.2s;
+  cursor: zoom-in;
 }
 .dict-image-item img:hover {
   transform: scale(1.03);
+  opacity: .9;
 }
 .dict-image-caption {
   position: absolute;
@@ -710,31 +712,11 @@ a.dict-tag:hover {
 /* ── 辞典ページ キャラクターシート展開パネル ── */
 .dict-charsheet {
   margin: 2rem 0;
-  border: 1px solid var(--rule);
-  border-top: 2px solid var(--ridge);
-  background: var(--aged);
 }
-.dict-charsheet-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 1.25rem;
-  cursor: pointer;
-  background: rgba(28,22,16,0.04);
-  border: none;
-  width: 100%;
-  text-align: left;
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  color: var(--ridge);
+/* アコーディオン廃止 — JS側でサムネ+モーダルに変換済み */
+.dict-charsheet-toggle { display: none; }
+.dict-charsheet-body { display: none; }
+.charsheet-thumb-wrap img {
+  transition: opacity .15s;
 }
-.dict-charsheet-toggle:hover { background: rgba(28,22,16,0.08); }
-.dict-charsheet-toggle .toggle-arrow { color: var(--highlight); }
-.dict-charsheet-body { display: none; padding: 0; }
-.dict-charsheet-body.open { display: block; }
-.dict-charsheet-body img {
-  width: 100%;
-  display: block;
-  border-top: 1px solid var(--rule);
-}
+.charsheet-thumb-wrap img:hover { opacity: .85; }
