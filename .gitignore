@@ -1,6 +1,6 @@
 ﻿# Cloudflare / Wrangler
 .wrangler/
-wrangler.jsonc
+
 
 # Git内部フォルダをデプロイ対象から除外
 .git/
