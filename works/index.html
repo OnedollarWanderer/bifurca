@@ -24,33 +24,56 @@
 .char-card-body-text{font-family:var(--font-sans);font-size:0.78rem;color:var(--muted);line-height:1.7;}
 .char-card-link{display:block;text-align:right;font-family:var(--font-sans);font-size:0.72rem;color:var(--highlight);text-decoration:none;padding:0.5rem 1.25rem 0.8rem;border-top:1px solid var(--rule);margin-top:auto;}
 
-/* ── ショートストーリー ── */
-.story-header{background:var(--stone);color:var(--parchment);padding:2rem 2.5rem;margin:1.5rem 0;border-left:4px solid var(--highlight);}
-.story-series-title{font-family:var(--font-display);font-size:1.5rem;color:var(--highlight);letter-spacing:0.05em;margin-bottom:0.4rem;}
-.story-series-sub{font-family:var(--font-sans);font-size:0.78rem;color:var(--muted);}
-.story-section{background:rgba(242,234,216,0.5);border:1px solid var(--rule);border-top:2px solid var(--ridge);margin:1rem 0;}
-.story-section-header{display:grid;grid-template-columns:220px 1fr;gap:0;cursor:pointer;}
-.story-img{width:220px;height:160px;object-fit:cover;display:block;flex-shrink:0;}
-.story-meta{padding:1.25rem 1.5rem;display:flex;flex-direction:column;justify-content:center;}
-.story-night-label{font-family:var(--font-sans);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--highlight);margin-bottom:0.3rem;}
-.story-title{font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--stone);margin-bottom:0.4rem;}
-.story-subtitle{font-family:var(--font-sans);font-size:0.78rem;color:var(--muted);line-height:1.55;}
-.story-body{font-family:var(--font-serif);font-size:0.9rem;line-height:2.1;color:var(--ink);padding:1.75rem 2rem;border-top:1px solid var(--rule);}
-.story-toggle{font-family:var(--font-sans);font-size:0.7rem;color:var(--highlight);text-align:right;padding:0 1rem 0 0;display:flex;align-items:center;justify-content:flex-end;}
-.story-body{display:none;}
-.story-body.open{display:block;}
-
 /* ── 作品投稿エリア ── */
 .submit-box{background:rgba(196,154,60,0.08);border:1px solid var(--highlight);padding:1.75rem 2rem;margin:2rem 0;text-align:center;}
 .submit-box h3{font-family:var(--font-display);font-size:1.1rem;color:var(--stone);margin-bottom:0.75rem;}
 .submit-box p{font-family:var(--font-sans);font-size:0.83rem;color:var(--ridge);line-height:1.75;max-width:520px;margin:0 auto 0.75rem;}
 
+/* ── 投稿作品一覧 ── */
+.worklist-heading{font-family:var(--font-display);font-size:1.05rem;color:var(--highlight);letter-spacing:0.08em;margin:2rem 0 0.6rem;padding-bottom:0.4rem;border-bottom:2px solid var(--ridge);}
+.worklist-heading:first-child{margin-top:0;}
+.worklist-table{width:100%;border-collapse:collapse;margin-bottom:0.5rem;}
+.worklist-table thead th{font-family:var(--font-sans);font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:600;padding:0 0.75rem 0.6rem;border-bottom:1px solid var(--ridge);}
+.worklist-table thead th.worklist-th-author{text-align:right;}
+.worklist-table tr{border-bottom:1px solid var(--rule);}
+.worklist-table tbody tr:last-child{border-bottom:none;}
+.worklist-table td{padding:0.85rem 0.75rem;font-family:var(--font-sans);font-size:0.85rem;vertical-align:top;}
+.worklist-title{white-space:nowrap;}
+.worklist-title a{color:var(--stone);font-weight:700;text-decoration:none;}
+.worklist-title a:hover{color:var(--highlight);}
+.worklist-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.worklist-tag{display:inline-block;background:rgba(196,154,60,0.1);border:1px solid var(--highlight);color:var(--ridge);font-family:var(--font-sans);font-size:0.68rem;letter-spacing:0.03em;line-height:1;padding:0.28rem 0.6rem;border-radius:999px;white-space:nowrap;}
+.worklist-author{color:var(--ridge);font-size:0.8rem;white-space:nowrap;text-align:right;}
+.worklist-empty{font-family:var(--font-sans);font-size:0.8rem;color:var(--muted);padding:0.75rem 0 1.5rem;border-bottom:1px solid var(--rule);margin-bottom:0.5rem;}
+
 @media(max-width:600px){
-  .story-section-header{grid-template-columns:1fr;}
-  .story-img{width:100%;height:200px;}
+  .worklist-table thead{display:none;}
+  .worklist-table, .worklist-table tbody, .worklist-table tr, .worklist-table td{display:block;width:100%;}
+  .worklist-table tr{padding:0.75rem 0;}
+  .worklist-table td{padding:0.15rem 0;}
+  .worklist-author{text-align:left;}
+}
+
+@media(max-width:600px){
   .char-grid{grid-template-columns:1fr;}
   .works-tab{font-size:0.68rem;padding:0.6rem 0.4rem;}
 }
+
+/* ── ファンアートキャンペーン（旧ギャラリーページ） ── */
+.gallery-notice{background:rgba(196,154,60,0.08);border:1px solid var(--highlight);padding:2rem 2.5rem;margin:1.5rem 0;text-align:center;}
+.gallery-notice h2{font-family:var(--font-display);font-size:1.4rem;color:var(--highlight);margin-bottom:0.75rem;}
+.gallery-notice p{font-family:var(--font-sans);font-size:0.85rem;line-height:1.75;color:var(--ridge);max-width:520px;margin:0 auto 1rem;}
+.tag-badge{display:inline-block;background:var(--stone);color:var(--highlight);font-family:var(--font-sans);font-size:0.9rem;font-weight:700;letter-spacing:0.05em;padding:0.5rem 1.25rem;margin:0.5rem auto;border:1px solid var(--highlight);}
+.subtheme-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.5rem 0;}
+.subtheme-item{background:var(--aged);padding:1.5rem 1.25rem;}
+.subtheme-title{font-family:var(--font-serif);font-size:1rem;font-weight:700;color:var(--stone);margin-bottom:0.4rem;}
+.subtheme-desc{font-family:var(--font-sans);font-size:0.78rem;color:var(--muted);line-height:1.6;}
+.award-box{padding:2rem 0;margin:2rem 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--rule);}
+.award-item{background:var(--stone);color:var(--parchment);padding:1.5rem 1.25rem;}
+.award-label{font-family:var(--font-sans);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--highlight);margin-bottom:0.5rem;}
+.award-title{font-family:var(--font-serif);font-size:0.95rem;font-weight:700;color:var(--aged);margin-bottom:0.4rem;}
+.award-desc{font-family:var(--font-sans);font-size:0.75rem;color:var(--muted);line-height:1.6;}
+@media(max-width:600px){.award-box{grid-template-columns:1fr;}.subtheme-grid{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
@@ -60,13 +83,13 @@
   <div class="page-hero">
     <p class="page-eyebrow">Works — 投稿作品まとめ</p>
     <h1 class="page-title">ビフルカの語り手たち</h1>
-    <p class="page-title-ja">キャラクター設定資料 / ショートストーリー「七つの夜」</p>
+    <p class="page-title-ja">キャラクター設定資料 / コミュニティ投稿作品一覧</p>
   </div>
 
   <!-- タブ -->
   <div class="works-tab-bar">
     <button class="works-tab active" onclick="switchTab(this,'tab-char')">キャラクター設定資料</button>
-    <button class="works-tab" onclick="switchTab(this,'tab-story')">七つの夜（短編連作）</button>
+    <button class="works-tab" onclick="switchTab(this,'tab-worklist')">投稿作品一覧</button>
     <button class="works-tab" onclick="switchTab(this,'tab-submit')">作品を投稿する</button>
   </div>
 
@@ -150,183 +173,50 @@
     </div>
   </div>
 
-  <!-- ============ 七つの夜 ============ -->
-  <div id="tab-story" class="works-panel">
-
-    <div class="story-header">
-      <div class="story-series-title">七つの夜</div>
-      <div class="story-series-sub">著：fK2mNwTp（同人作家）　掲載：会話ログ第21回<br>
-      「東洋帝国グランドリッジ貫通工事を宣言した夜」——同一の夜に、七つの場所で、七人が何かを選ぶ。</div>
-    </div>
-
-    <!-- 各夜のストーリー -->
-
-    <div class="story-section">
-      <div class="story-section-header" onclick="toggleStory(this)">
-        <img class="story-img" src="../assets/images/night1_varun.png" alt="第一夜 ヴァルン" loading="lazy">
-        <div class="story-meta">
-          <div class="story-night-label">第一夜 — ヴァルン人</div>
-          <div class="story-title">帳簿の煙</div>
-          <div class="story-subtitle">上級書記官マーヴァ。積まれた三十二冊の帳簿と、引き出しの鍵。祝賀花火が上がる夜、一人だけが知っている数字がある。</div>
-        </div>
-        <div class="story-toggle">▼ 読む</div>
-      </div>
-      <div class="story-body">
-        <p>帝都の官庁街に夜が来るとき、それは書類の匂いと一緒にやってくる。レンガ造りの三階建て、中央管理局第七分室。窓の外では、工事宣言の祝賀花火が上がっていた。</p>
-        <p>上級書記官のマーヴァは、花火を見なかった。机の上に積まれた帳簿が、今夜だけで三十二冊あった。グランドリッジ貫通工事の予算試算。資材調達の見積もり。動員する農民の数。移送に使う牛車の頭数。数字は合っていた。いつも、数字は合っていた。問題はそこではない。</p>
-        <p>マーヴァは一冊の帳簿を引き出しの奥から取り出した。誰にも提出していない帳簿。自分だけが作った帳簿。そこには別の数字が書いてあった。工事予定地周辺の農村、直近三年の収穫記録。中央に報告された数字と、マーヴァが地方出張のたびに自分の目で記録した数字。その差、平均して三割。三割、低い。</p>
-        <p>中央に届いている「豊作」の報告は、地方官僚が上位に合わせて書き直した数字だった。工事に動員される農民の村は、既に限界に近い。</p>
-        <p>マーヴァは帳簿を閉じた。この数字を上に出せば、工事は延期になるかもしれない。自分の昇進は終わる。もしかすると、もっと悪いことが起きる。</p>
-        <p>花火の音がした。</p>
-        <p>マーヴァは帳簿を引き出しに戻した。鍵をかけた。今夜は、ではない。目の周りが、少しだけ、重かった。</p>
-      </div>
-    </div>
-
-    <div class="story-section">
-      <div class="story-section-header" onclick="toggleStory(this)">
-        <img class="story-img" src="../assets/images/night2_talassa.png" alt="第二夜 タラッサ" loading="lazy">
-        <div class="story-meta">
-          <div class="story-night-label">第二夜 — タラッサ人</div>
-          <div class="story-title">港の値段</div>
-          <div class="story-subtitle">海運商シーラ。テーブルの上の羅針盤と、壁に貼られた号外。四割の航路が消えるかもしれない夜、針はまだ北を指していた。</div>
-        </div>
-        <div class="story-toggle">▼ 読む</div>
-      </div>
-      <div class="story-body">
-        <p>港の酒場は、夜になると別の生き物になる。昼間は魚の匂いと荷役の怒鳴り声で満ちているのに、日が落ちると蝋燭の脂と東洋酒の甘い匂いに変わる。タラッサ港市、第三埠頭の角。海運商のシーラは、一人でいた。</p>
-        <p>テーブルの上に羅針盤を置いていた。父から受け取り、父が祖父から受け取った羅針盤。東洋製ではない。タラッサの職人が鋳造した、百年前の道具。</p>
-        <p>壁の貼り紙に、工事宣言の号外が貼ってあった。グランドリッジ貫通。東西自由往来。新時代の幕開け。シーラは計算していた。グランドリッジに道が開けば、東洋の商品が陸路で西大陸に届く。自分の船が運ぶ必要がなくなる航路が、三本ある。港市の収入の、およそ四割。</p>
-        <p>向かいの席に、東洋人の男が座った。「一緒にいいですか」男は東洋共通語で言った。「席が埋まっていて」シーラは頷いた。しばらく沈黙があった。男が羅針盤に気づいた。「古いものですね」「古い」シーラは答えた。「だが正確だ」</p>
-        <p>男は少し笑った。「工事が始まれば、陸路の方が速くなる。海運は厳しくなりますね」</p>
-        <p>シーラは羅針盤を手に取った。針が北を指していた。いつも北を指す。海がどこにあっても、嵐の中でも、北だけは変わらない。「海は残る」シーラは言った。</p>
-        <p>男は首を傾げた。「道が開いても？」「道は壊れる」シーラは窓の外の港を見た。「海は壊れない」</p>
-        <p>男は何か言いかけて、やめた。シーラは羅針盤をしまった。計算は終わっていなかった。四割の損失を埋める新しい航路を、まだ見つけていない。でも今夜は、それよりも先に確認すべきことがあった。針が、まだ動いているかどうか。</p>
-      </div>
-    </div>
-
-    <div class="story-section">
-      <div class="story-section-header" onclick="toggleStory(this)">
-        <img class="story-img" src="../assets/images/night3_velka.png" alt="第三夜 ヴェルカ" loading="lazy">
-        <div class="story-meta">
-          <div class="story-night-label">第三夜 — ヴェルカ人</div>
-          <div class="story-title">評議が終わらない</div>
-          <div class="story-subtitle">長老バルナ、七十二歳、膝が悪い。それでも座らない。評議は六時間続いていた。三日後、東洋の使者が答えを求めている。</div>
-        </div>
-        <div class="story-toggle">▼ 読む</div>
-      </div>
-      <div class="story-body">
-        <p>焚き火が三つ。ノルド西洋大陸の北部、凍土の縁。ヴェルカ人の冬営地。天幕が七つ、輪になって建っている。評議は夕暮れから始まって、もう六時間が経っていた。</p>
-        <p>長老のバルナが立っていた。七十二歳。片方の膝が悪い。それでも座らなかった。座ることは、まだ言葉を持っていないことを意味するから。</p>
-        <p>「東洋の使者は三日後に答えを求めている」若者のレクが言った。「工事への協力か、拒否か。どちらかだ」「どちらかではない」バルナは言った。「それはあちらの言葉だ」「しかし答えなければ、あちらが決める」</p>
-        <p>沈黙。焚き火が揺れた。風が南から来ていた。グランドリッジの方から。</p>
-        <p>別の声が上がった。「協力すれば物資を貰える。冬は長い」また別の声。「物資は一度貰えば、次も貰わなければならなくなる」「反対する理由を聞かせてほしい」「反対しているのではない。時間が必要だと言っている」「時間は三日しかない」</p>
-        <p>バルナは星を見た。衣服の左胸、自分の部族の星座が縫い込んであった。祖母が縫った星座。その祖母の祖母が見ていた同じ星。評議は正しい。時間をかけることが正しい。しかし今夜、初めて、正しいことと間に合うことが、別の場所にある気がした。</p>
-        <p>レクが近づいてきた。「長老。あなたはどう思う」</p>
-        <p>バルナは長い間、黙っていた。「私はまだ、言葉を持っていない」</p>
-        <p>レクは何も言わなかった。焚き火が、また揺れた。</p>
-      </div>
-    </div>
-
-    <div class="story-section">
-      <div class="story-section-header" onclick="toggleStory(this)">
-        <img class="story-img" src="../assets/images/night4_sahaar.png" alt="第四夜 サハール" loading="lazy">
-        <div class="story-meta">
-          <div class="story-night-label">第四夜 — サハール人</div>
-          <div class="story-title">割符の重さ</div>
-          <div class="story-subtitle">オアシスの泉、腰に三十二本の骨の割符。東洋通貨を受け取れば、負債から自由になれる。なぜ、それが恐ろしいのか。</div>
-        </div>
-        <div class="story-toggle">▼ 読む</div>
-      </div>
-      <div class="story-body">
-        <p>砂漠の夜は、昼より冷たい。オアシスの泉の縁に、タリムは座っていた。赤道西洋大陸、中央砂漠の隊商路。東洋の使者が去って半日が経っていた。</p>
-        <p>腰の革紐に、骨の割符が三十二本ぶら下がっていた。父の代から引き継いだ負債の記録。タリムの氏族が隣の氏族に貸した羊の数。隣の氏族がまたその隣に貸した水の量。水が食料に変わり、食料が労働に変わり、労働が誓約に変わった、三世代分の信頼の地図。</p>
-        <p>東洋の使者は言った。工事への協力に応じた氏族には、東洋通貨を支払う。拒否した氏族への支払いはない。</p>
-        <p>タリムは割符を一本取り出した。祖父の刻んだ記号。二十年前の羊の貸借。相手の氏族はもう存在しない。東洋の疫病で、十五年前に消えた。だからこの割符の負債は、永遠に返済されない。それでも捨てなかった。</p>
-        <p>東洋通貨が流通すれば、この割符は意味を失う。三十二本全部が、ただの骨になる。</p>
-        <p>しかし。タリムは泉の水面を見た。月が映っていた。東洋通貨を受け取れば、隣の氏族より早く豊かになれる。割符のネットワークから抜け出せる。負債から自由になれる。なぜ、それが恐ろしいのか。</p>
-        <p>風が来た。砂が舞い、割符がかすかに鳴った。三十二の骨が、三十二の声で、何かを言っていた。タリムには聞こえなかった。あるいは、聞こえないふりをした。</p>
-      </div>
-    </div>
-
-    <div class="story-section">
-      <div class="story-section-header" onclick="toggleStory(this)">
-        <img class="story-img" src="../assets/images/night5_korda.png" alt="第五夜 コルダ" loading="lazy">
-        <div class="story-meta">
-          <div class="story-night-label">第五夜 — コルダ人</div>
-          <div class="story-title">最後の演説</div>
-          <div class="story-subtitle">評議長ドラヴ、石畳の広場に一人。大切な演説の前に言葉を試す習慣。しかし今夜、言葉が壁に返ってこなかった。</div>
-        </div>
-        <div class="story-toggle">▼ 読む</div>
-      </div>
-      <div class="story-body">
-        <p>広場には誰もいなかった。南西洋大陸、コルダ都市国家連合の盟主都市、ヴォルタ。石畳の中央広場。昼間は市場で賑わうその場所が、夜は石と風だけになる。</p>
-        <p>評議長のドラヴは一人で立っていた。演台の上に。聴衆なしに。習慣だった。大切な演説の前に、一人で言葉を試す。声に出して、石畳に聞かせる。石は正直だ。空虚な言葉は、広場に吸い込まれて消える。響く言葉だけが、壁に返ってくる。</p>
-        <p>明日、使者に答えを返す。東洋帝国のグランドリッジ工事への協力を、拒否する。ドラヴはそう決めていた。</p>
-        <p>「我々は」ドラヴは声に出した。「いかなる外圧にも屈しない。コルダの誇りは、コルダの石と同じく、永遠に」</p>
-        <p>言葉が広場に散った。返ってこなかった。</p>
-        <p>ドラヴは止まった。もう一度、言った。「我々は、屈しない」やはり返ってこなかった。</p>
-        <p>おかしい。この広場で、この演台から、ドラヴは三十年間演説してきた。言葉が壁に返ってくるかどうか、それだけを信じてきた。今夜初めて、言葉が返ってこない。</p>
-        <p>ドラヴは空を見た。月もなかった。もしかして、石は既に知っているのか。この言葉が、明日の朝には嘘になることを。</p>
-        <p>ドラヴは演台を降りた。誰にも見せない速さで。石畳を渡りながら、ドラヴは自分の靴音を聞いた。こつ、こつ、こつ。それだけが、今夜、返ってくるものだった。</p>
-      </div>
-    </div>
-
-    <div class="story-section">
-      <div class="story-section-header" onclick="toggleStory(this)">
-        <img class="story-img" src="../assets/images/night6_karna.png" alt="第六夜 カルナ" loading="lazy">
-        <div class="story-meta">
-          <div class="story-night-label">第六夜 — カルナ人</div>
-          <div class="story-title">護符と教科書</div>
-          <div class="story-subtitle">エナ、台所のテーブル。教科書と、母から受け取った護符。息子に、どちらを渡すべきか。護符はテーブルの端に置いたままにした。</div>
-        </div>
-        <div class="story-toggle">▼ 読む</div>
-      </div>
-      <div class="story-body">
-        <p>子供が寝た後の台所は、一日で一番静かな場所だ。南東洋大陸、港湾都市の郊外。カルナ人の中産階級の住宅。二階建てのレンガ造り。東洋様式の外壁に、在来の文様を染めた布が窓に掛かっている。</p>
-        <p>エナは台所のテーブルに座っていた。テーブルの上に、二つのものがあった。一つは、息子の学校の教科書。歴史の教科書。来週、試験がある。もう一つは、エナの母から受け取った護符。赤い糸と骨のビーズ。在来民族の手仕事。</p>
-        <p>エナは教科書を開いた。工事宣言のページが、もう増補されていた。出版が早い。東洋帝国のグランドリッジ貫通計画は、東西交流の新たな時代を開く歴史的事業である。両文明圏の相互理解を深め、西大陸の発展を加速させる。エナは閉じた。</p>
-        <p>護符を手に取った。母は言った。「これはお祖母ちゃんの祖母から来たものだ。どこの誰が作ったかは分からない。でも手から手へ渡ってきた。それだけは分かる」</p>
-        <p>息子に、どちらを渡すべきか。教科書は試験に必要だ。良い点を取れば、良い学校に入れる。良い学校に入れば、良い仕事が見つかる。東洋の会社に入れる。豊かになれる。護符は何の役にも立たない。では、なぜ捨てられないのか。</p>
-        <p>風が窓の布を揺らした。在来の文様が、蝋燭の光の中で動いた。エナはしばらく、その動きを見ていた。</p>
-        <p>それから教科書を引き寄せて、試験範囲に線を引き始めた。護符は、テーブルの端に置いたままにした。</p>
-      </div>
-    </div>
-
-    <div class="story-section">
-      <div class="story-section-header" onclick="toggleStory(this)">
-        <img class="story-img" src="../assets/images/night7_linga.png" alt="第七夜 リンガ" loading="lazy">
-        <div class="story-meta">
-          <div class="story-night-label">第七夜 — リンガ人</div>
-          <div class="story-title">針が揺れる</div>
-          <div class="story-subtitle">峠管理家系の末子ネイ、十九歳。両手を岩に当てると、東からの振動が西を押している。「俺たちはどこに行けばいい」父は答えなかった。</div>
-        </div>
-        <div class="story-toggle">▼ 読む</div>
-      </div>
-      <div class="story-body">
-        <p>峠に夜が来るのは、平地より早い。グランドリッジ、第十七峠。標高三千二百メートル。ネイという名の峠管理家系の末子が、岩に座っていた。十九歳。</p>
-        <p>父は言った。「今夜は感じるか」</p>
-        <p>ネイは目を閉じた。両手のひらを岩に当てた。冷たかった。でも冷たさの奥に、いつもある振動があった。東西のプレートが擦れ合う、微かな共鳴。生まれたときから体の中にある感覚。グランドリッジで生まれた者だけが持つもの。</p>
-        <p>「感じる」ネイは言った。「でも」「でも？」「今夜は、違う」</p>
-        <p>父が近づいた。「どう違う」</p>
-        <p>ネイは言葉を探した。「いつもは、東からと西からの二つの振動が、ここで混ざっている。だから峠がある。だから俺たちがここにいられる」「今夜は？」「東からの振動が、強くなっている。西からのが、押されている」</p>
-        <p>沈黙。父は空を見た。東の方角。「工事が始まったら」父は静かに言った。「この感覚は変わるかもしれない」「変わったら」ネイは岩から手を離した。「俺たちはどこに行けばいい」</p>
-        <p>父は答えなかった。</p>
-        <p>ネイは立ち上がった。峠の両側を見た。東側には、遠くに東洋帝国の都市の灯りが見えた。西側には、何もなかった。草原の暗闇だけがあった。</p>
-        <p>手のひらがまだ、岩の振動を覚えていた。東と西。どちらでもない場所に、ネイは立っていた。どちらでもない場所だけが、今は、自分の場所だった。</p>
-      </div>
-    </div>
-
-    <!-- 書き手コメント -->
-    <div style="background:rgba(196,154,60,0.06);border-left:3px solid var(--highlight);padding:1.25rem 1.5rem;margin:2rem 0;font-family:var(--font-sans);font-size:0.82rem;color:var(--ridge);line-height:1.75;">
-      <strong style="color:var(--stone);">スレッドの反応より——</strong><br>
-      「護符をテーブルの端に置いたままにしたという最後の一行が胸に来た」（b8ZEkYHH） /
-      「ドラヴの『言葉が返ってこなかった』——自分の言葉が嘘だと無意識に知っている指導者が決断の前夜に経験することの完璧な描写」（8q8WqVR8t） /
-      「ネイの最後の一節、これはル・グウィンが生涯をかけて書こうとしていたことの一行版だ」（BtnH5E56）
-    </div>
-
-    <p style="text-align:right;font-family:var(--font-sans);font-size:0.78rem;">
-      <a href="../logs/21.html" style="color:var(--highlight);">→ 会話ログ第21回（制作経緯・スレッドの反応を読む）</a>
+  <!-- ============ 投稿作品一覧 ============ -->
+  <div id="tab-worklist" class="works-panel">
+    <p style="font-family:var(--font-sans);font-size:0.83rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.75;">
+      コミュニティメンバーがPixiv等に投稿した作品の一覧です。タイトルをクリックすると投稿先へ移動します。投稿の経緯は<a href="../logs/25.html" style="color:var(--highlight);">会話ログ第25回</a>を参照してください。
     </p>
+
+    <div class="worklist-heading">■ SS</div>
+    <table class="worklist-table">
+      <thead>
+        <tr>
+          <th>タイトル</th>
+          <th>タグ</th>
+          <th class="worklist-th-author">投稿者</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="worklist-title"><a href="https://www.pixiv.net/novel/series/16130381" target="_blank" rel="noopener">七民族の信仰、それぞれの夜に</a></td>
+          <td class="worklist-tags"><span class="worklist-tag">カルナ</span><span class="worklist-tag">コルダ</span><span class="worklist-tag">リンガ</span><span class="worklist-tag">サハール</span><span class="worklist-tag">タラッサ</span><span class="worklist-tag">ヴェルカ</span><span class="worklist-tag">ヴァルン</span></td>
+          <td class="worklist-author">ぺスカ</td>
+        </tr>
+        <tr>
+          <td class="worklist-title"><a href="https://www.pixiv.net/novel/series/16142995" target="_blank" rel="noopener">七つの夜</a></td>
+          <td class="worklist-tags"><span class="worklist-tag">カルナ</span><span class="worklist-tag">コルダ</span><span class="worklist-tag">リンガ</span><span class="worklist-tag">サハール</span><span class="worklist-tag">タラッサ</span><span class="worklist-tag">ヴェルカ</span><span class="worklist-tag">ヴァルン</span></td>
+          <td class="worklist-author">fK2mNwTp</td>
+        </tr>
+        <tr>
+          <td class="worklist-title"><a href="https://www.pixiv.net/novel/series/16142264" target="_blank" rel="noopener">七都市の景色</a></td>
+          <td class="worklist-tags"><span class="worklist-tag">カルナ</span><span class="worklist-tag">コルダ</span><span class="worklist-tag">リンガ</span><span class="worklist-tag">サハール</span><span class="worklist-tag">タラッサ</span><span class="worklist-tag">ヴェルカ</span><span class="worklist-tag">ヴァルン</span></td>
+          <td class="worklist-author">ぺスカ</td>
+        </tr>
+        <tr>
+          <td class="worklist-title"><a href="https://www.pixiv.net/novel/series/16142322" target="_blank" rel="noopener">理解するための地図</a></td>
+          <td class="worklist-tags"><span class="worklist-tag">カルナ</span><span class="worklist-tag">コルダ</span><span class="worklist-tag">リンガ</span><span class="worklist-tag">サハール</span><span class="worklist-tag">タラッサ</span><span class="worklist-tag">ヴェルカ</span><span class="worklist-tag">ヴァルン</span></td>
+          <td class="worklist-author">ぺスカ</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="worklist-heading">■ イラスト</div>
+    <div class="worklist-empty">投稿はまだありません。（aM8JD6JqtがzV8mQpRtの投稿作へAI生成イラストで協力中）</div>
+
+    <div class="worklist-heading">■ オーディオブック</div>
+    <div class="worklist-empty">投稿はまだありません。</div>
   </div>
 
   <!-- ============ 投稿する ============ -->
@@ -341,12 +231,85 @@
         Twitter/X または pixiv に <strong>#ビフルカ</strong> タグをつけて投稿。<br>
         運営が確認した作品は、このページへの掲載を打診します。
       </p>
-      <a href="../gallery/index.html" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--highlight);text-decoration:none;border:1px solid var(--highlight);padding:0.6rem 1.5rem;display:inline-block;margin-top:0.5rem;">ギャラリー・キャンペーン詳細 →</a>
     </div>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;">
       <a href="../guideline/quickstart.html" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--ridge);text-decoration:none;border:1px solid var(--rule);padding:0.6rem 1.25rem;">5分クイックスタート →</a>
       <a href="../guideline/index.html" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--ridge);text-decoration:none;border:1px solid var(--rule);padding:0.6rem 1.25rem;">創作ガイドライン →</a>
       <a href="../dict/index.html" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--ridge);text-decoration:none;border:1px solid var(--rule);padding:0.6rem 1.25rem;">用語辞典で世界を深掘り →</a>
+    </div>
+
+    <!-- ============ ファンアートキャンペーン（旧ギャラリーページ） ============ -->
+    <div class="ridge-divider" style="margin-top:3rem;">ファンアートキャンペーン</div>
+
+    <div class="gallery-notice">
+      <h2>キャンペーン 受付中</h2>
+      <p>
+        「ビフルカに生きる誰かを描いてください」<br>
+        小説・イラスト・コミック・BGM・動画——形式は問いません。<br>
+        参加費無料、1人何点でも可。
+      </p>
+      <div>
+        <span class="tag-badge">#ビフルカ</span>
+      </div>
+      <p style="font-size:0.78rem;margin-top:0.75rem;">
+        Twitter/X または pixiv に <strong>#ビフルカ</strong> タグをつけて投稿してください。
+      </p>
+      <a href="https://discord.gg/56sh9wFhR" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--highlight);text-decoration:none;border:1px solid var(--highlight);padding:0.5rem 1rem;display:inline-block;margin-top:0.75rem;">Discordコミュニティで直接投稿・相談する →</a>
+      <a href="../guideline/index.html" style="font-family:var(--font-sans);font-size:0.8rem;color:var(--ridge);text-decoration:none;border:1px solid var(--rule);padding:0.5rem 1rem;display:inline-block;margin-top:0.5rem;">創作ガイドラインを読む →</a>
+    </div>
+
+    <!-- サブテーマ -->
+    <div class="ridge-divider">サブテーマ（選択自由）</div>
+    <div class="subtheme-grid">
+      <div class="subtheme-item">
+        <div class="subtheme-title">🍲 食卓</div>
+        <div class="subtheme-desc">七民族の料理・食の場面。三層粥、客人の皿、二味干飯——食卓に民族の価値観が現れる。</div>
+      </div>
+      <div class="subtheme-item">
+        <div class="subtheme-title">🏔 旅人</div>
+        <div class="subtheme-desc">グランドリッジを越える人物・峠の風景。東と西の間に立つ者だけが見る景色。</div>
+      </div>
+      <div class="subtheme-item">
+        <div class="subtheme-title">🌙 掟</div>
+        <div class="subtheme-desc">各民族の文化・儀式・日常の一場面。ジンクス、祭礼、評議会、骨の割符——掟の中に生きる人を。</div>
+      </div>
+      <div class="subtheme-item">
+        <div class="subtheme-title">👁 証人</div>
+        <div class="subtheme-desc">ンガ・ソルの気配を感じる場面。姿を描いても描かなくてもよい。その存在の痕跡だけを。</div>
+      </div>
+    </div>
+
+    <!-- 賞 -->
+    <div class="ridge-divider">賞</div>
+    <div class="award-box">
+      <div class="award-item">
+        <div class="award-label">最優秀賞 1点</div>
+        <div class="award-title">公式トップへの恒久掲載</div>
+        <div class="award-desc">サイトトップへの永久掲載 ＋「ビフルカ世界観 公認ビジュアル」クレジット ＋ 辞典改訂版への掲載 ＋ 公式SNSコメント</div>
+      </div>
+      <div class="award-item">
+        <div class="award-label">優秀賞 3〜5点</div>
+        <div class="award-title">ギャラリーへの恒久掲載</div>
+        <div class="award-desc">公式サイトギャラリーへの永久掲載 ＋ クレジット表記 ＋ 公式SNSコメント</div>
+      </div>
+      <div class="award-item">
+        <div class="award-label">参加賞 全応募者</div>
+        <div class="award-title">コミュニティロール付与</div>
+        <div class="award-desc">Discordの「キャンペーン参加者」ロール ＋ 応募作品のDiscord専用チャンネルへの掲載（本人許可の上）</div>
+      </div>
+    </div>
+
+    <p style="font-family:var(--font-sans);font-size:0.75rem;color:var(--muted);line-height:1.75;margin-top:1rem;">
+      ※ 応募作品の著作権は応募者本人に帰属します。運営は応募作品を公式サイト・公式SNSに掲載する権利を持ちます。グッズ化等の商業利用を行う場合は別途応募者本人と契約を締結します。
+    </p>
+
+    <!-- 作品掲載予定エリア -->
+    <div class="ridge-divider" style="margin-top:3rem;">受賞作品・参加作品</div>
+    <div style="border:2px dashed rgba(74,63,53,0.2);padding:3rem 2rem;text-align:center;color:var(--muted);">
+      <p style="font-family:var(--font-sans);font-size:0.88rem;line-height:1.8;">
+        キャンペーン結果発表後、こちらに作品が掲載されます。<br>
+        <strong>#ビフルカ</strong> タグの投稿を楽しみにしています。
+      </p>
     </div>
   </div>
 
@@ -362,13 +325,6 @@ function switchTab(btn, panelId) {
   document.getElementById(panelId).classList.add('active');
 }
 
-function toggleStory(header) {
-  const section = header.closest('.story-section');
-  const body = section.querySelector('.story-body');
-  const toggle = header.querySelector('.story-toggle');
-  const isOpen = body.classList.toggle('open');
-  toggle.textContent = isOpen ? '▲ 閉じる' : '▼ 読む';
-}
 </script>
 </body>
 </html>
