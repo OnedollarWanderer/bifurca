@@ -4,3 +4,8 @@
 
 # Git内部フォルダをデプロイ対象から除外
 .git/
+
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
